@@ -573,10 +573,10 @@
     *   `git add . && git commit -m "feat: build RX scene for L6 Presentation decryption"`
 
 ### Acceptance Criteria
-- [ ] **Component Renders**: `RX_L6_Presentation.jsx` is created, routed, and displays the encrypted data and lock icon.
-- [ ] **Decryption Animation**: An animation clearly shows the lock icon unlocking and the hex data transforming back into readable plain text.
-- [ ] **Data Displayed**: The final state correctly shows the plain text message from the data model.
-- [ ] **Navigation Works**: The "Next" button correctly transitions the state to `L7_RECV`.
+- [x] **Component Renders**: `RX_L6_Presentation.jsx` is created, routed, and displays the encrypted data and lock icon.
+- [x] **Decryption Animation**: An animation clearly shows the lock icon unlocking and the hex data transforming back into readable plain text.
+- [x] **Data Displayed**: The final state correctly shows the plain text message from the data model.
+- [x] **Navigation Works**: The "Next" button correctly transitions the state to `L7_RECV`.
 
 ---
 
