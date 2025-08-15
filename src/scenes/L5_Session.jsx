@@ -44,9 +44,10 @@ export default function L5_Session() {
   useEffect(() => {
     const tl = makeTl();
     if (synRef.current && synAckRef.current && ackRef.current) {
-        tl.from(synRef.current, { autoAlpha: 0, x: -100 })
-          .from(synAckRef.current, { autoAlpha: 0, x: 100 })
-          .from(ackRef.current, { autoAlpha: 0, x: -100 });
+        // Using fromTo for more reliable re-triggering on mount
+        tl.fromTo(synRef.current, { autoAlpha: 0, x: -100 }, { autoAlpha: 1, x: 0 })
+          .fromTo(synAckRef.current, { autoAlpha: 0, x: 100 }, { autoAlpha: 1, x: 0 })
+          .fromTo(ackRef.current, { autoAlpha: 0, x: -100 }, { autoAlpha: 1, x: 0 });
     }
     return () => tl.kill();
   }, []);
