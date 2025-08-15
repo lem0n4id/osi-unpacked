@@ -7,6 +7,7 @@ import L6_Presentation from './L6_Presentation.jsx';
 import L5_Session from './L5_Session.jsx';
 import L4_Transport from './L4_Transport.jsx';
 import L3_Network from './L3_Network.jsx';
+import L2_DataLink from './L2_DataLink.jsx';
 
 const sceneTransition = {
   initial: { opacity: 0 },
@@ -35,6 +36,9 @@ const SceneRouter = () => {
         break;
       case 'L3':
         sceneComponent = <L3_Network />;
+        break;
+      case 'L2':
+        sceneComponent = <L2_DataLink />;
         break;
       case 'IDLE':
       default:

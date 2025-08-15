@@ -396,11 +396,11 @@
     *   `git add . && git commit -m "feat: build L2 Data Link scene with framing animation"`
 
 ### Acceptance Criteria
-- [ ] **Component Renders**: `L2_DataLink.jsx` is created and renders correctly.
-- [ ] **MAC Addresses Displayed**: Each frame visually includes a header containing the correct source and destination MAC addresses.
-- [ ] **Framing Animation**: An animation clearly shows a frame header being added to each packet.
-- [ ] **NIC Handoff Animation**: The completed frames are animated moving into a NIC element, which provides a visual feedback pulse or glow.
-- [ ] **Navigation Works**: The "Next" button correctly transitions the state to the `L1` scene.
+- [x] **Component Renders**: `L2_DataLink.jsx` is created and renders correctly.
+- [x] **MAC Addresses Displayed**: Each frame visually includes a header containing the correct source and destination MAC addresses.
+- [ ] **Framing Animation**: An animation clearly shows a frame header being added to each packet. - **too complex**
+- [x] **NIC Handoff Animation**: The completed frames are animated moving into a NIC element, which provides a visual feedback pulse or glow.
+- [x] **Navigation Works**: The "Next" button correctly transitions the state to the `L1` scene.
 
 ---
 
