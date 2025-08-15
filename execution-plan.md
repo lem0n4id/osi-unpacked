@@ -231,10 +231,10 @@
     *   `git add . && git commit -m "feat: build L7 Application scene"`
 
 ### Acceptance Criteria
-- [ ] **Component Renders**: `L7_Application.jsx` is created and renders in the `SceneRouter` without errors.
-- [ ] **Data Displayed**: The component correctly fetches and displays the `sample` and `desc` for Layer 7 from the global state.
-- [ ] **UI Correctly Styled**: The scene shows three distinct, styled areas: a messaging app view, a protocol data view, and an info box, all matching the pixel-art theme.
-- [ ] **Navigation Works**: Clicking the "Next" button updates the application state, causing the `SceneRouter` to transition to the `L6` scene.
+- [x] **Component Renders**: `L7_Application.jsx` is created and renders in the `SceneRouter` without errors.
+- [x] **Data Displayed**: The component correctly fetches and displays the `sample` and `desc` for Layer 7 from the global state.
+- [x] **UI Correctly Styled**: The scene shows three distinct, styled areas: a messaging app view, a protocol data view, and an info box, all matching the pixel-art theme.
+- [x] **Navigation Works**: Clicking the "Next" button updates the application state, causing the `SceneRouter` to transition to the `L6` scene.
 
 ---
 

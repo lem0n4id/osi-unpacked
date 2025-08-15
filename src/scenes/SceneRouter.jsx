@@ -2,13 +2,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import React from 'react';
 import { useUIState } from '../lib/state.jsx';
 import IdleScene from './IdleScene.jsx';
-
-// Placeholder for the L7 scene
-const L7_Application = () => (
-  <div className="w-full h-full flex items-center justify-center">
-    <h1 className="text-4xl text-white">Layer 7: Application</h1>
-  </div>
-);
+import L7_Application from './L7_Application.jsx';
 
 const sceneTransition = {
   initial: { opacity: 0 },
