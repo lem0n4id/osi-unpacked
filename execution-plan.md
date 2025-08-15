@@ -477,10 +477,10 @@
     *   `git add . && git commit -m "feat: build RX scene for L2 Data Link de-framing"`
 
 ### Acceptance Criteria
-- [ ] **Component Renders**: `RX_L2_DataLink.jsx` is created, routed, and correctly displays Ethernet frames.
-- [ ] **Data Displayed**: The Frame Header correctly displays the source and destination MAC addresses from the data model.
-- [ ] **De-Framing Animation**: An animation clearly shows the Frame Header being removed, leaving the inner IP Packet.
-- [ ] **Navigation Works**: The "Next" button correctly transitions the state to `L3_RECV`.
+- [x] **Component Renders**: `RX_L2_DataLink.jsx` is created, routed, and correctly displays Ethernet frames.
+- [x] **Data Displayed**: The Frame Header correctly displays the source and destination MAC addresses from the data model.
+- [x] **De-Framing Animation**: An animation clearly shows the Frame Header being removed, leaving the inner IP Packet.
+- [x] **Navigation Works**: The "Next" button correctly transitions the state to `L3_RECV`.
 
 ---
 
