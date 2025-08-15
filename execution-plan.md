@@ -196,11 +196,11 @@
     *   `git add . && git commit -m "feat: create comprehensive data model for OSI layers"`
 
 ### Acceptance Criteria
-- [ ] **Layer Data File Created**: `src/data/layers.js` exists and exports a `LAYERS` array.
-- [ ] **Icons Installed**: `react-icons` is added to `package.json`.
-- [ ] **Complete Data Structure**: Each layer object in `layers.js` contains all required fields: `id`, `name`, `shortDesc`, `desc`, `techNotes`, `sample`, and `Icon`.
-- [ ] **Plausible Sample Data**: The `sample` data for each layer (HTTP, TCP, IP, MAC) is filled out with realistic, technically-sound examples.
-- [ ] **Icons Assigned**: Each layer has a relevant icon component assigned to its `Icon` property.
+- [x] **Layer Data File Created**: `src/data/layers.js` exists and exports a `LAYERS` array.
+- [x] **Icons Installed**: `react-icons` is added to `package.json`.
+- [x] **Complete Data Structure**: Each layer object in `layers.js` contains all required fields: `id`, `name`, `shortDesc`, `desc`, `techNotes`, `sample`, and `Icon`.
+- [x] **Plausible Sample Data**: The `sample` data for each layer (HTTP, TCP, IP, MAC) is filled out with realistic, technically-sound examples.
+- [x] **Icons Assigned**: Each layer has a relevant icon component assigned to its `Icon` property.
 
 ---
 
