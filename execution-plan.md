@@ -502,10 +502,10 @@
     *   `git add . && git commit -m "feat: build RX scene for L3 Network de-encapsulation"`
 
 ### Acceptance Criteria
-- [ ] **Component Renders**: `RX_L3_Network.jsx` is created, routed, and correctly displays IP packets.
-- [ ] **Data Displayed**: The IP Header correctly displays the source and destination IP addresses from the data model.
-- [ ] **De-encapsulation Animation**: An animation clearly shows the IP Header being removed from each packet, leaving the TCP Segments.
-- [ ] **Navigation Works**: The "Next" button correctly transitions the state to the `L4_RECV` scene.
+- [x] **Component Renders**: `RX_L3_Network.jsx` is created, routed, and correctly displays IP packets.
+- [x] **Data Displayed**: The IP Header correctly displays the source and destination IP addresses from the data model.
+- [x] **De-encapsulation Animation**: An animation clearly shows the IP Header being removed from **each** packet, leaving the TCP Segments.
+- [x] **Navigation Works**: The "Next" button correctly transitions the state to the `L4_RECV` scene.
 
 ---
 

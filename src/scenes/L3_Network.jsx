@@ -39,6 +39,7 @@ return (
                         key={seg.seq}
                         ipHeader={layerData.sample.ip}
                         ref={el => packetRefs.current[i] = el}
+                        animateIn={true}
                     >
                         <Segment segment={seg} ports={l4Data.sample.ports} />
                     </Packet>
