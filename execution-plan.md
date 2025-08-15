@@ -159,10 +159,10 @@
     *   `git add . && git commit -m "feat: setup GSAP helpers and Framer Motion scene transitions"`
 
 ### Acceptance Criteria
-- [ ] **GSAP Helper Created**: `src/lib/anim.js` exists and exports a `makeTl` timeline factory function.
-- [ ] **Framer Motion Integrated**: `SceneRouter.jsx` uses `<AnimatePresence>` and scenes are wrapped in `<motion.div>` to enable fade-in/fade-out transitions between steps.
-- [ ] **GSAP Test Animation Works**: Clicking the "Send Message" button in `IdleScene` successfully triggers a GSAP animation that visibly zooms in on the left computer monitor element.
-- [ ] **Smooth Transitions**: Changing scenes via the UI controls results in a smooth cross-fade animation without jarring visual jumps.
+- [x] **GSAP Helper Created**: `src/lib/anim.js` exists and exports a `makeTl` timeline factory function.
+- [x] **Framer Motion Integrated**: `SceneRouter.jsx` uses `<AnimatePresence>` and scenes are wrapped in `<motion.div>` to enable fade-in/fade-out transitions between steps.
+- [x] **GSAP Test Animation Works**: Clicking the "Send Message" button in `IdleScene` successfully triggers a GSAP animation that visibly zooms in on the left computer monitor element.
+- [x] **Smooth Transitions**: Changing scenes via the UI controls results in a smooth cross-fade animation without jarring visual jumps.
 
 ---
 
