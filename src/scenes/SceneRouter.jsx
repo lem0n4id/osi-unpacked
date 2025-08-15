@@ -3,6 +3,7 @@ import React from 'react';
 import { useUIState } from '../lib/state.jsx';
 import IdleScene from './IdleScene.jsx';
 import L7_Application from './L7_Application.jsx';
+import L6_Presentation from './L6_Presentation.jsx';
 
 const sceneTransition = {
   initial: { opacity: 0 },
@@ -19,6 +20,9 @@ const SceneRouter = () => {
     switch (currentStep) {
       case 'L7':
         sceneComponent = <L7_Application />;
+        break;
+      case 'L6':
+        sceneComponent = <L6_Presentation />;
         break;
       case 'IDLE':
       default:

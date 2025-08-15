@@ -1,4 +1,7 @@
 import { gsap } from 'gsap';
+import { ScrambleTextPlugin } from 'gsap/ScrambleTextPlugin';
+
+gsap.registerPlugin(ScrambleTextPlugin);
 
 /**
  * Creates a GSAP timeline with default settings.

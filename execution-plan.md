@@ -264,10 +264,10 @@
     *   `git add . && git commit -m "feat: build L6 Presentation scene with encryption animation"`
 
 ### Acceptance Criteria
-- [ ] **Component Renders**: `L6_Presentation.jsx` is created and renders correctly.
-- [ ] **Split View**: The scene clearly displays both the plain text message and its corresponding hex-encoded version in separate panels.
-- [ ] **Encryption Animation**: On scene load, the hex data performs a "scramble" or "reveal" animation, and a lock icon animates to indicate the process is complete.
-- [ ] **Navigation Works**: The "Next" button correctly transitions the state to the `L5` scene.
+- [x] **Component Renders**: `L6_Presentation.jsx` is created and renders correctly.
+- [x] **Split View**: The scene clearly displays both the plain text message and its corresponding hex-encoded version in separate panels.
+- [x] **Encryption Animation**: On scene load, the hex data performs a "scramble" or "reveal" animation, and a lock icon animates to indicate the process is complete.
+- [x] **Navigation Works**: The "Next" button correctly transitions the state to the `L5` scene.
 
 ---
 
