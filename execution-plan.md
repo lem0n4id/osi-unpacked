@@ -296,11 +296,11 @@
     *   `git add . && git commit -m "feat: build L5 Session scene with handshake animation"`
 
 ### Acceptance Criteria
-- [ ] **Component Renders**: `L5_Session.jsx` is created and renders correctly.
-- [ ] **Handshake Visualized**: The scene displays three distinct elements representing the SYN, SYN-ACK, and ACK steps of the TCP handshake.
-- [ ] **Data Displayed**: Each handshake step correctly shows its name, sequence, and acknowledgment numbers from the data model.
-- [ ] **Sequential Animation**: On scene load, the three handshake steps appear one after another in the correct order, animated by GSAP.
-- [ ] **Navigation Works**: The "Next" button correctly transitions the state to the `L4` scene.
+- [x] **Component Renders**: `L5_Session.jsx` is created and renders correctly.
+- [x] **Handshake Visualized**: The scene displays three distinct elements representing the SYN, SYN-ACK, and ACK steps of the TCP handshake.
+- [x] **Data Displayed**: Each handshake step correctly shows its name, sequence, and acknowledgment numbers from the data model.
+- [x] **Sequential Animation**: On scene load, the three handshake steps appear one after another in the correct order, animated by GSAP.
+- [x] **Navigation Works**: The "Next" button correctly transitions the state to the `L4` scene.
 
 ---
 
