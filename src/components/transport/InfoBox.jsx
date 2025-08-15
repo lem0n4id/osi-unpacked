@@ -1,10 +1,10 @@
 import React from 'react';
 
-const InfoBox = ({ layer }) => {
+const InfoBox = ({ layer, className }) => {
   if (!layer) return null;
   const { Icon, name, desc } = layer;
   return (
-    <div className="p-4 bg-[var(--term)] border-2 border-gray-700 rounded-lg flex items-center gap-4">
+    <div className={`p-4 bg-[var(--term)] border-2 border-gray-700 rounded-lg flex items-center gap-4 ${className}`}>
       <Icon className="text-3xl text-green-400" />
       <div>
         <h3 className="font-bold text-lg text-white">

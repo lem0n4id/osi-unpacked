@@ -527,10 +527,10 @@
     *   `git add . && git commit -m "feat: build RX scene for L4 Transport reassembly"`
 
 ### Acceptance Criteria
-- [ ] **Component Renders**: `RX_L4_Transport.jsx` is created, routed, and correctly displays the individual TCP segments.
-- [ ] **Data Displayed**: Each segment correctly displays its header information (ports, sequence number).
-- [ ] **Reassembly Animation**: An animation clearly shows the individual segments merging into a single, contiguous data block.
-- [ ] **Navigation Works**: The "Next" button correctly transitions the state to the `L5_RECV` scene.
+- [x] **Component Renders**: `RX_L4_Transport.jsx` is created, routed, and correctly displays the individual TCP segments.
+- [x] **Data Displayed**: Each segment correctly displays its header information (ports, sequence number).
+- [x] **Reassembly Animation**: An animation clearly shows the individual segments merging into a single, contiguous data block.
+- [x] **Navigation Works**: The "Next" button correctly transitions the state to the `L5_RECV` scene.
 
 ---
 
