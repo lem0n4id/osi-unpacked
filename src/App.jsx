@@ -1,6 +1,6 @@
 import AppShell from './components/AppShell';
 import SceneCanvas from './components/SceneCanvas';
-import IdleScene from './scenes/IdleScene';
+import SceneRouter from './scenes/SceneRouter';
 import './App.css';
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
         <p>Explore the layers and understand how they work together!</p>
       </div>
       <SceneCanvas>
-        <IdleScene />
+        <SceneRouter />
       </SceneCanvas>
     </AppShell>
   );

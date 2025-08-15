@@ -126,6 +126,15 @@
 
     * `git add . && git commit -m "feat: basic scene router and send button"`
 
+### Acceptance Criteria
+- [x] **UI State Management**: `src/lib/state.jsx` is created and provides `currentStep`, `currentLayer`, and `direction` state via a React Context.
+- [x] **State Provider**: The main `App` component is wrapped in the `UIStateProvider`.
+- [x] **"Send Message" Button**: A "Send Message" button is present in the `IdleScene`.
+- [x] **Scene Router**: `src/scenes/SceneRouter.jsx` is implemented.
+- [x] **State Advancement**: Clicking the "Send Message" button updates `currentStep` to 'L7'.
+- [x] **Restart Button**: A "Restart" button is available.
+- [x] **Restart Functionality**: The "Restart" button resets the state to `IDLE`.
+
 ---
 
 ## Phase 4 — GSAP & Framer Motion Boot
@@ -146,6 +155,12 @@
 
     * `git add . && git commit -m "feat: gsap zoom-to-monitor and framer motion fades"`
 
+### Acceptance Criteria
+- [ ] **GSAP Helper**: `src/lib/anim.js` is created with a `makeTl` timeline factory.
+- [ ] **GSAP Animation**: A simple GSAP animation (e.g., zoom) is triggered on an event.
+- [ ] **Framer Motion Integration**: Scenes are wrapped in `motion.div` for fade transitions.
+- [ ] **Smooth Transitions**: Scene transitions are animated smoothly.
+
 ---
 
 ## Phase 5 — Data Model for OSI Layers
@@ -162,6 +177,11 @@
 39. **Commit**
 
     * `git add . && git commit -m "feat: layer metadata with HTTP sample"`
+
+### Acceptance Criteria
+- [ ] **Layer Data File**: `src/data/layers.js` is created.
+- [ ] **Data Structure**: The file exports an array of 7 layer objects with `id`, `name`, `description`, and `sample` data.
+- [ ] **Placeholder Data**: Placeholders for ports, IP, and MAC addresses are included in the relevant layers.
 
 ---
 
@@ -186,6 +206,13 @@
 
     * `git add . && git commit -m "feat: L7 scene with messaging UI and HTTP snippet"`
 
+### Acceptance Criteria
+- [ ] **L7 Scene Component**: `src/scenes/L7_Application.jsx` is created.
+- [ ] **Messaging UI**: A styled chat bubble or messaging interface is displayed.
+- [ ] **Protocol Panel**: A panel showing the HTTP request from `layers.js` is present.
+- [ ] **Info Box**: A descriptive text box for Layer 7 is included.
+- [ ] **Next Button**: A "Next" button to advance to Layer 6 is functional.
+
 ---
 
 ## Phase 7 — Layer 6 (Presentation) Scene
@@ -206,6 +233,12 @@
 
     * `git add . && git commit -m "feat: L6 scene with encoding & encryption animation"`
 
+### Acceptance Criteria
+- [ ] **L6 Scene Component**: `src/scenes/L6_Presentation.jsx` is created.
+- [ ] **Encoding/Encryption View**: The scene visually represents data transformation (e.g., plain text vs. hex).
+- [ ] **Animation**: A GSAP animation for encoding/encryption is implemented.
+- [ ] **Info Box & Navigation**: An info box and a "Next" button are present.
+
 ---
 
 ## Phase 8 — Layer 5 (Session) Scene
@@ -225,6 +258,12 @@
 55. **Commit**
 
     * `git add . && git commit -m "feat: L5 scene with TCP handshake visualization"`
+
+### Acceptance Criteria
+- [ ] **L5 Scene Component**: `src/scenes/L5_Session.jsx` is created.
+- [ ] **Handshake Animation**: The TCP three-way handshake (SYN, SYN-ACK, ACK) is animated.
+- [ ] **Sequence Numbers**: Sequence numbers are displayed.
+- [ ] **Info Box & Navigation**: An info box and a "Next" button are present.
 
 ---
 
@@ -249,6 +288,12 @@
 
     * `git add . && git commit -m "feat: L4 scene with segmentation, ports, sliding window"`
 
+### Acceptance Criteria
+- [ ] **L4 Scene Component**: `src/scenes/L4_Transport.jsx` is created.
+- [ ] **Segmentation View**: The message is shown broken into segments.
+- [ ] **Port Numbers**: Source and Destination ports are displayed.
+- [ ] **Info Box & Navigation**: An info box and a "Next" button are present.
+
 ---
 
 ## Phase 10 — Layer 3 (Network) Scene
@@ -268,6 +313,12 @@
 66. **Commit**
 
     * `git add . && git commit -m "feat: L3 scene with routing hops and IP headers"`
+
+### Acceptance Criteria
+- [ ] **L3 Scene Component**: `src/scenes/L3_Network.jsx` is created.
+- [ ] **IP Headers**: Source and Destination IP addresses are displayed.
+- [ ] **Routing Animation**: A packet hop animation across routers is implemented.
+- [ ] **Info Box & Navigation**: An info box and a "Next" button are present.
 
 ---
 
@@ -289,6 +340,12 @@
 
     * `git add . && git commit -m "feat: L2 scene with Ethernet frame and NIC animation"`
 
+### Acceptance Criteria
+- [ ] **L2 Scene Component**: `src/scenes/L2_DataLink.jsx` is created.
+- [ ] **Ethernet Frame**: The packet is visually wrapped in a frame with MAC addresses.
+- [ ] **NIC Animation**: An animation showing the frame moving to the NIC is present.
+- [ ] **Info Box & Navigation**: An info box and a "Next" button are present.
+
 ---
 
 ## Phase 12 — Layer 1 (Physical) Scene
@@ -308,6 +365,12 @@
 76. **Commit**
 
     * `git add . && git commit -m "feat: L1 scene with signal pulses and reverse trigger"`
+
+### Acceptance Criteria
+- [ ] **L1 Scene Component**: `src/scenes/L1_Physical.jsx` is created.
+- [ ] **Signal Animation**: Signal pulses (1s and 0s) are animated across the cable.
+- [ ] **Reverse Button**: A button to trigger the reverse journey is present and functional.
+- [ ] **Info Box**: An info box for Layer 1 is included.
 
 ---
 
@@ -338,6 +401,11 @@
 
     * `git add . && git commit -m "feat: reverse journey scenes RX L1→L7"`
 
+### Acceptance Criteria
+- [ ] **All RX Scene Components**: `RX_L1` to `RX_L7` scene components are created.
+- [ ] **Reverse Logic**: Each scene correctly visualizes the "unwrapping" process at that layer.
+- [ ] **Seamless Flow**: The reverse journey proceeds smoothly from L1 to L7.
+
 ---
 
 ## Phase 14 — Message Delivered & Summary
@@ -354,6 +422,11 @@
 88. **Commit**
 
     * `git add . && git commit -m "feat: delivered & summary screens with replay"`
+
+### Acceptance Criteria
+- [ ] **Delivered Scene**: `Delivered.jsx` shows the final message and a happy character.
+- [ ] **Summary Scene**: `Summary.jsx` displays a recap of all layers.
+- [ ] **Replay Button**: A "Replay" button is present and resets the state to `IDLE`.
 
 ---
 
@@ -375,6 +448,12 @@
 
     * `git add . && git commit -m "feat: HUD controls, keyboard nav, progress badge, tooltips"`
 
+### Acceptance Criteria
+- [ ] **HUD Controls**: Global Play/Pause, Next, and Back buttons are implemented.
+- [ ] **Keyboard Navigation**: Arrow keys and Spacebar control the flow.
+- [ ] **Progress Indicator**: A badge shows the current layer.
+- [ ] **Tooltips**: Hover tooltips are added for technical details.
+
 ---
 
 ## Phase 16 — Technical Accuracy Pass
@@ -395,6 +474,11 @@
 
     * `git add . && git commit -m "chore: accuracy pass, optional error/latency controls"`
 
+### Acceptance Criteria
+- [ ] **Protocol Samples Validated**: All protocol data is plausible.
+- [ ] **Copy Tweaks**: Info box text is clear and accurate.
+- [ ] **(Optional) Error/Latency controls**: Controls are functional if implemented.
+
 ---
 
 ## Phase 17 — Packaging & Deploy
@@ -407,6 +491,11 @@
      \- Deploy to Vercel or Netlify: connect repo, set build command `npm run build`, output `dist/`.
 101. **Tag v0.1.0**
      \- `git tag v0.1.0 && git push --tags`.
+
+### Acceptance Criteria
+- [ ] **README Updated**: The README includes screenshots, instructions, and credits.
+- [ ] **Deployed**: The application is successfully deployed to a hosting service.
+- [ ] **Git Tag**: A `v0.1.0` tag is created and pushed.
 
 ---
 
@@ -424,6 +513,9 @@
      \- Use `React.memo` on sprites; reduce re-renders; GSAP timeline re-use.
 107. **Analytics (privacy-friendly)**
      \- Track which layers users replay the most.
+
+### Acceptance Criteria
+- [ ] **Features Implemented**: Any chosen stretch goals are functional.
 
 ---
 
