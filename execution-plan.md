@@ -549,9 +549,9 @@
     *   `git add . && git commit -m "feat: build RX scene for L5 Session confirmation"`
 
 ### Acceptance Criteria
-- [ ] **Component Renders**: `RX_L5_Session.jsx` is created and routed correctly.
-- [ ] **Session Confirmed**: On scene load, a short, clear animation confirms the session is active.
-- [ ] **Navigation Works**: The "Next" button correctly transitions the state to `L6_RECV`.
+- [x] **Component Renders**: `RX_L5_Session.jsx` is created and routed correctly.
+- [x] **Session Confirmed**: On scene load, a short, clear animation confirms the session is active.
+- [x] **Navigation Works**: The "Next" button correctly transitions the state to `L6_RECV`.
 
 ---
 

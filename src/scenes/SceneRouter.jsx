@@ -13,6 +13,7 @@ import RX_L1_Physical from './RX_L1_Physical.jsx';
 import RX_L2_DataLink from './RX_L2_DataLink.jsx';
 import RX_L3_Network from './RX_L3_Network.jsx';
 import RX_L4_Transport from './RX_L4_Transport.jsx';
+import RX_L5_Session from './RX_L5_Session.jsx';
 
 const sceneTransition = {
   initial: { opacity: 0 },
@@ -59,6 +60,9 @@ const SceneRouter = () => {
         break;
       case 'L4_RECV':
         sceneComponent = <RX_L4_Transport />;
+        break;
+      case 'L5_RECV':
+        sceneComponent = <RX_L5_Session />;
         break;
       case 'IDLE':
       default:
