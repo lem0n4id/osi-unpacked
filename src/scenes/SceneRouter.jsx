@@ -4,6 +4,7 @@ import { useUIState } from '../lib/state.jsx';
 import IdleScene from './IdleScene.jsx';
 import L7_Application from './L7_Application.jsx';
 import L6_Presentation from './L6_Presentation.jsx';
+import L5_Session from './L5_Session.jsx';
 
 const sceneTransition = {
   initial: { opacity: 0 },
@@ -23,6 +24,9 @@ const SceneRouter = () => {
         break;
       case 'L6':
         sceneComponent = <L6_Presentation />;
+        break;
+      case 'L5':
+        sceneComponent = <L5_Session />;
         break;
       case 'IDLE':
       default:
