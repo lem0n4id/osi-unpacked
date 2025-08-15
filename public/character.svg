@@ -1,0 +1,20 @@
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 64 64"
+>
+    <!-- Head -->
+    <rect x="16" y="8" width="32" height="32" fill="#00AA00" stroke="#007700" strokeWidth="2" />
+    <!-- Eyes -->
+    <rect x="22" y="16" width="8" height="8" fill="#000" />
+    <rect x="34" y="16" width="8" height="8" fill="#000" />
+    <!-- Mouth -->
+    <rect x="26" y="28" width="4" height="8" fill="#000" />
+    <rect x="34" y="28" width="4" height="8" fill="#000" />
+    <rect x="30" y="32" width="4" height="4" fill="#000" />
+    <!-- Body -->
+    <rect x="16" y="40" width="32" height="24" fill="#00AA00" stroke="#007700" strokeWidth="2" />
+    <!-- Left Leg -->
+    <rect x="20" y="56" width="8" height="8" fill="#00AA00" stroke="#007700" strokeWidth="2" />
+    <!-- Right Leg -->
+    <rect x="36" y="56" width="8" height="8" fill="#00AA00" stroke="#007700" strokeWidth="2" />
+</svg>
