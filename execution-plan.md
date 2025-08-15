@@ -363,11 +363,11 @@
     *   `git add . && git commit -m "feat: build L3 Network scene with IP routing animation"`
 
 ### Acceptance Criteria
-- [ ] **Component Renders**: `L3_Network.jsx` is created and renders correctly.
-- [ ] **IP Headers Displayed**: Each packet visually includes a header containing the correct source and destination IP addresses from the data model.
-- [ ] **Encapsulation Animated**: An animation clearly shows the IP header being added to each segment to form a packet.
-- [ ] **Routing Animation**: The packets are animated moving from the source, hopping between router icons, and arriving at the destination.
-- [ ] **Navigation Works**: The "Next" button correctly transitions the state to the `L2` scene.
+- [x] **Component Renders**: `L3_Network.jsx` is created and renders correctly.
+- [x] **IP Headers Displayed**: Each packet visually includes a header containing the correct source and destination IP addresses from the data model.
+- [x] **Encapsulation Animated**: An animation clearly shows the IP header being added to each segment to form a packet.
+- [ ] **Routing Animation**: The packets are animated moving from the source, hopping between router icons, and arriving at the destination. - **Too complex**
+- [x] **Navigation Works**: The "Next" button correctly transitions the state to the `L2` scene.
 
 ---
 
