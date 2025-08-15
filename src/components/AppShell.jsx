@@ -2,7 +2,7 @@ import React from 'react';
 import { useUIState } from '../lib/state.jsx';
 
 const AppShell = ({ children }) => {
-  const { currentStep, setCurrentStep, setCurrentLayer, setDirection } = useUIState();
+  const { currentStep, direction, setCurrentStep, setCurrentLayer, setDirection } = useUIState();
 
   const handleRestart = () => {
     setCurrentStep('IDLE');
@@ -14,7 +14,7 @@ const AppShell = ({ children }) => {
     <div className="flex flex-col items-center justify-center min-h-screen p-4">
       <div className="absolute top-4 right-4 flex items-center gap-4">
         <span className="text-md text-gray-400 bg-gray-800 px-3 py-1 rounded">
-          STEP: {currentStep}
+          STEP: {currentStep} | DIR: {direction}
         </span>
         <button
           onClick={handleRestart}
