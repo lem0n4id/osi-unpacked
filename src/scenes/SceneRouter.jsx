@@ -5,6 +5,7 @@ import IdleScene from './IdleScene.jsx';
 import L7_Application from './L7_Application.jsx';
 import L6_Presentation from './L6_Presentation.jsx';
 import L5_Session from './L5_Session.jsx';
+import L4_Transport from './L4_Transport.jsx';
 
 const sceneTransition = {
   initial: { opacity: 0 },
@@ -27,6 +28,9 @@ const SceneRouter = () => {
         break;
       case 'L5':
         sceneComponent = <L5_Session />;
+        break;
+      case 'L4':
+        sceneComponent = <L4_Transport />;
         break;
       case 'IDLE':
       default:
