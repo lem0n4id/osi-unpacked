@@ -435,62 +435,198 @@
 
 ---
 
-## Phase 13 — Reverse Journey (L1 → L7 Unpacking)
+## Phase 13 — Reverse L1 (Signal Arrival)
 
-73. **Create All RX Scene Components**
-    *   Create placeholder files for the entire receive journey: `RX_L1_Physical.jsx`, `RX_L2_DataLink.jsx`, `RX_L3_Network.jsx`, `RX_L4_Transport.jsx`, `RX_L5_Session.jsx`, `RX_L6_Presentation.jsx`, and `RX_L7_Application.jsx`.
-    *   Wire them up in `SceneRouter.jsx` with keys like `L1_RECV`, `L2_RECV`, etc.
+73. **Create RX L1 Scene Component**
+    *   Create `src/scenes/RX_L1_Physical.jsx`.
+    *   The component should render the wide shot of both computers, similar to `L1_Physical.jsx`.
+    *   Wire it up in `SceneRouter.jsx` with the key `L1_RECV`.
 
-74. **Implement RX L1 & L2: Signal to Frame**
-    *   **`RX_L1_Physical`**: Show the signal pulses arriving at the destination computer's NIC. The NIC should glow. The "Next" button should lead to `L2_RECV`.
-    *   **`RX_L2_DataLink`**: Animate the Ethernet frames emerging from the NIC. Then, animate the Frame Header flying off, leaving just the IP Packet. This is the reverse of the L2 framing animation. The "Next" button leads to `L3_RECV`.
+74. **Implement RX L1: Signal Arrival Animation**
+    *   In a `useEffect`, create a GSAP timeline.
+    *   Animate the `SignalPulse` components arriving at the destination computer's Network Interface Card (NIC).
+    *   As the pulses arrive, animate the NIC element glowing or pulsing to signify it is receiving the signal.
+    *   Add a "Next: De-Framing" button that calls `setCurrentStep('L2_RECV')`.
 
-75. **Implement RX L3 & L4: Packet to Segment to Data**
-    *   **`RX_L3_Network`**: Animate the IP Header flying off the packets, leaving the TCP Segments. The destination IP on the header should match the receiver's IP. "Next" leads to `L4_RECV`.
-    *   **`RX_L4_Transport`**: Animate the individual segments merging back into a single, large "Encrypted Data" block. This is the reverse of the segmentation animation. "Next" leads to `L5_RECV`.
-
-76. **Implement RX L5, L6 & L7: Decrypt and Deliver**
-    *   **`RX_L5_Session`**: Briefly show a "Session Confirmed" or checkmark animation. "Next" leads to `L6_RECV`.
-    *   **`RX_L6_Presentation`**: Animate the lock icon unlocking and the hex data unscrambling back into plain text. This is the reverse of the encryption animation. "Next" leads to `L7_RECV`.
-    *   **`RX_L7_Application`**: Show the plain text message appearing in the destination user's chat application window. The character sprite could change to a "smile" state. "Next" leads to `DELIVERED`.
-
-77. **Commit Reverse Journey**
-    *   `git add . && git commit -m "feat: build all reverse journey (RX) scenes"`
+75. **Commit L1 RX Scene**
+    *   `git add . && git commit -m "feat: build RX scene for L1 Physical signal arrival"`
 
 ### Acceptance Criteria
-- [ ] **All RX Components Created**: All 7 `RX_*.jsx` scene files are created and routed correctly.
-- [ ] **RX L2 Un-framing**: The L2 scene correctly animates the removal of the MAC header.
-- [ ] **RX L3 De-capsulation**: The L3 scene correctly animates the removal of the IP header.
-- [ ] **RX L4 Reassembly**: The L4 scene correctly animates the segments merging into a single data block.
-- [ ] **RX L6 Decryption**: The L6 scene correctly animates the "unlocking" and decoding of the data back to plain text.
-- [ ] **RX L7 Delivery**: The L7 scene shows the final message in the receiver's UI.
-- [ ] **Seamless Flow**: Navigating from `L1_RECV` to `L7_RECV` provides a continuous and logical story of data being unpacked at each layer.
+- [ ] **Component Renders**: `RX_L1_Physical.jsx` is created, routed, and renders the full scene with both computers without errors.
+- [ ] **Signal Arrival Animated**: On scene load, an animation clearly shows signal pulses arriving at the destination NIC.
+- [ ] **NIC Glows**: The destination computer's NIC provides visual feedback (e.g., a glow or pulse) to indicate signal receipt.
+- [ ] **Navigation Works**: The "Next" button correctly transitions the application state to `L2_RECV`.
 
 ---
 
-## Phase 14 — Finale & Summary
+## Phase 14 — Reverse L2 (De-Framing)
 
-78. **Create Delivered Scene**
+76. **Create RX L2 Scene Component**
+    *   Create `src/scenes/RX_L2_DataLink.jsx`.
+    *   Fetch L2 data from the `layers` state.
+    *   Wire it up in `SceneRouter.jsx` with the key `L2_RECV`.
+
+77. **Implement RX L2: De-Framing Animation**
+    *   The scene should initially show Ethernet Frames emerging from the destination's NIC.
+    *   In a `useEffect`, create a GSAP timeline to animate the de-framing process.
+    *   Animate the Frame Header (containing the source and destination MAC addresses) detaching from each frame and flying off-screen or fading out.
+    *   The remaining IP Packets should be left clearly visible.
+    *   Add a "Next: De-encapsulation" button that calls `setCurrentStep('L3_RECV')`.
+
+78. **Commit L2 RX Scene**
+    *   `git add . && git commit -m "feat: build RX scene for L2 Data Link de-framing"`
+
+### Acceptance Criteria
+- [ ] **Component Renders**: `RX_L2_DataLink.jsx` is created, routed, and correctly displays Ethernet frames.
+- [ ] **Data Displayed**: The Frame Header correctly displays the source and destination MAC addresses from the data model.
+- [ ] **De-Framing Animation**: An animation clearly shows the Frame Header being removed, leaving the inner IP Packet.
+- [ ] **Navigation Works**: The "Next" button correctly transitions the state to `L3_RECV`.
+
+---
+
+## Phase 15 — Reverse L3 (De-encapsulation)
+
+79. **Create RX L3 Scene Component**
+    *   Create `src/scenes/RX_L3_Network.jsx`.
+    *   Fetch L3 data from the `layers` state.
+    *   Wire it into the `SceneRouter` with key `L3_RECV`.
+
+80. **Implement RX L3: De-encapsulation Animation**
+    *   The scene should show the IP Packets received from the previous layer.
+    *   In a `useEffect`, create a GSAP timeline to animate de-encapsulation.
+    *   Animate the IP Header detaching from each packet. The header should briefly highlight the Destination IP address (which matches the receiver's IP) before fading out.
+    *   This leaves the inner TCP Segments visible.
+    *   Add a "Next: Reassembly" button that calls `setCurrentStep('L4_RECV')`.
+
+81. **Commit L3 RX Scene**
+    *   `git add . && git commit -m "feat: build RX scene for L3 Network de-encapsulation"`
+
+### Acceptance Criteria
+- [ ] **Component Renders**: `RX_L3_Network.jsx` is created, routed, and correctly displays IP packets.
+- [ ] **Data Displayed**: The IP Header correctly displays the source and destination IP addresses from the data model.
+- [ ] **De-encapsulation Animation**: An animation clearly shows the IP Header being removed from each packet, leaving the TCP Segments.
+- [ ] **Navigation Works**: The "Next" button correctly transitions the state to the `L4_RECV` scene.
+
+---
+
+## Phase 16 — Reverse L4 (Reassembly)
+
+82. **Create RX L4 Scene Component**
+    *   Create `src/scenes/RX_L4_Transport.jsx`.
+    *   Fetch L4 data from the `layers` state.
+    *   Wire it into the `SceneRouter` with key `L4_RECV`.
+
+83. **Implement RX L4: Reassembly Animation**
+    *   The scene should initially display the individual TCP Segments received from L3.
+    *   In a `useEffect`, create a GSAP timeline to animate the reassembly process.
+    *   Animate the segments moving together and merging into a single, large "Encrypted Data" block. This is the reverse of the L4 segmentation animation.
+    *   Use a GSAP stagger effect for a smooth visual flow.
+    *   Add a "Next: Session Check" button that calls `setCurrentStep('L5_RECV')`.
+
+84. **Commit L4 RX Scene**
+    *   `git add . && git commit -m "feat: build RX scene for L4 Transport reassembly"`
+
+### Acceptance Criteria
+- [ ] **Component Renders**: `RX_L4_Transport.jsx` is created, routed, and correctly displays the individual TCP segments.
+- [ ] **Data Displayed**: Each segment correctly displays its header information (ports, sequence number).
+- [ ] **Reassembly Animation**: An animation clearly shows the individual segments merging into a single, contiguous data block.
+- [ ] **Navigation Works**: The "Next" button correctly transitions the state to the `L5_RECV` scene.
+
+---
+
+## Phase 17 — Reverse L5 (Session)
+
+85. **Create RX L5 Scene Component**
+    *   Create `src/scenes/RX_L5_Session.jsx`.
+    *   Wire it into the `SceneRouter` with key `L5_RECV`.
+
+86. **Implement RX L5: Session Confirmation**
+    *   This scene provides a quick visual confirmation that the session established in L5 is still active.
+    *   In a `useEffect`, create a simple GSAP animation to show a "Session Confirmed" message or a large checkmark icon fading in and then out.
+    *   Add a "Next: Decrypt Data" button that calls `setCurrentStep('L6_RECV')`.
+
+87. **Commit L5 RX Scene**
+    *   `git add . && git commit -m "feat: build RX scene for L5 Session confirmation"`
+
+### Acceptance Criteria
+- [ ] **Component Renders**: `RX_L5_Session.jsx` is created and routed correctly.
+- [ ] **Session Confirmed**: On scene load, a short, clear animation confirms the session is active.
+- [ ] **Navigation Works**: The "Next" button correctly transitions the state to `L6_RECV`.
+
+---
+
+## Phase 18 — Reverse L6 (Decryption)
+
+88. **Create RX L6 Scene Component**
+    *   Create `src/scenes/RX_L6_Presentation.jsx`.
+    *   Fetch L6 data from the `layers` state.
+    *   Wire it into the `SceneRouter` with key `L6_RECV`.
+
+89. **Implement RX L6: Decryption Animation**
+    *   The scene should display the "Encrypted Data" block from L4 and a lock icon.
+    *   In a `useEffect`, create a GSAP timeline to reverse the encryption animation.
+    *   Animate the lock icon changing from a "locked" to an "unlocked" state.
+    *   Simultaneously, animate the hex data unscrambling back into the plain text message (`layerData.sample.plain`).
+    *   Add a "Next: Deliver Message" button that calls `setCurrentStep('L7_RECV')`.
+
+90. **Commit L6 RX Scene**
+    *   `git add . && git commit -m "feat: build RX scene for L6 Presentation decryption"`
+
+### Acceptance Criteria
+- [ ] **Component Renders**: `RX_L6_Presentation.jsx` is created, routed, and displays the encrypted data and lock icon.
+- [ ] **Decryption Animation**: An animation clearly shows the lock icon unlocking and the hex data transforming back into readable plain text.
+- [ ] **Data Displayed**: The final state correctly shows the plain text message from the data model.
+- [ ] **Navigation Works**: The "Next" button correctly transitions the state to `L7_RECV`.
+
+---
+
+## Phase 19 — Reverse L7 (Delivery)
+
+91. **Create RX L7 Scene Component**
+    *   Create `src/scenes/RX_L7_Application.jsx`.
+    *   Fetch L7 data from the `layers` state.
+    *   Wire it into the `SceneRouter` with key `L7_RECV`.
+
+92. **Implement RX L7: Message Delivery**
+    *   The scene should show the destination user's "Messaging App" UI.
+    *   Animate the plain text message appearing in the chat window.
+    *   Update the destination `CharacterSprite` component's `state` prop from `'idle'` to `'smile'` to show their reaction.
+    *   Add a "Message Received!" button that calls `setCurrentStep('DELIVERED')`.
+
+93. **Commit L7 RX Scene**
+    *   `git add . && git commit -m "feat: build RX scene for L7 Application delivery"`
+
+### Acceptance Criteria
+- [ ] **Component Renders**: `RX_L7_Application.jsx` is created, routed, and displays the receiver's application UI.
+- [ ] **Message Delivered**: The plain text message is correctly displayed in the receiver's chat window.
+- [ ] **Character Reacts**: The destination character's sprite changes to a "smile" state.
+- [ ] **Navigation Works**: The "Next" button correctly transitions the state to the `DELIVERED` scene.
+
+---
+
+## Phase 20 — Finale & Summary
+
+94. **Create Delivered Scene**
     *   Create `src/scenes/Delivered.jsx`.
     *   This scene confirms the message was successfully received. It should show the final message in the receiver's chat window and the receiver's `CharacterSprite` in a `state='smile'` pose.
     *   Add a "View Summary" button that calls `setCurrentStep('SUMMARY')`.
 
-79. **Create Summary Scene**
+95. **Create Summary Scene**
     *   Create `src/scenes/Summary.jsx`.
     *   Design a layout that maps over the `layers` array from the UI state.
     *   For each layer, render a `div` or `LayerSummaryCard` component that displays the layer's `Icon`, `name`, and `shortDesc`. Arrange these in a vertical list.
 
-80. **Animate the Summary List**
+96. **Animate the Summary List**
     *   In a `useEffect`, use `makeTl()` to create a GSAP timeline.
     *   Animate the summary cards appearing one by one using a stagger effect.
     *   `tl.from(summaryCardRefs.current, { opacity: 0, x: -100, stagger: 0.1, ease: 'power2.out' });`
     *   **Why**: This provides a final, polished "reveal" of the entire OSI stack, reinforcing the journey the user just completed.
 
-81. **Implement Replay Functionality**
+97. **Implement Replay Functionality**
     *   Add a "Replay Story" button to the `Summary` scene.
     *   The `onClick` handler must reset the application to its initial state by calling `setCurrentStep('IDLE')` and `setDirection('forward')`.
 
-82. **Commit Finale Scenes**
+98. **Commit Finale Scenes**
     *   `git add . && git commit -m "feat: build Delivered and Summary scenes"`
 
 ### Acceptance Criteria
@@ -502,37 +638,37 @@
 
 ---
 
-## Phase 15 — Global UI & UX Polish
+## Phase 21 — Global UI & UX Polish
 
-83. **Create a Global HUD Component**
+99. **Create a Global HUD Component**
     *   Create `src/components/HUD.jsx` (Heads-Up Display).
     *   This component will be rendered in `App.jsx` outside the main `SceneCanvas` to ensure it's always visible.
     *   It will contain navigation buttons (Back, Next, Reset) and the progress indicator.
 
-84. **Implement Data-Driven Navigation Logic**
-    *   In `src/lib/state.jsx`, define the complete story sequence in an array: `const STORY_SEQUENCE = ['IDLE', 'L7', 'L6', ..., 'L1', 'L1_RECV', ..., 'DELIVERED', 'SUMMARY'];`.
-    *   Create `handleNext` and `handleBack` functions. These will find the index of the `currentStep` in `STORY_SEQUENCE` and use `setCurrentStep` to advance to `index + 1` or `index - 1`.
-    *   The "Reset" button will simply call `setCurrentStep('IDLE')`.
-    *   Pass these handlers down through the context provider.
-    *   **Why**: This centralizes navigation logic, making it robust and easy to modify, rather than having each scene manage its own "Next" step.
+100. **Implement Data-Driven Navigation Logic**
+      *   In `src/lib/state.jsx`, define the complete story sequence in an array: `const STORY_SEQUENCE = ['IDLE', 'L7', 'L6', ..., 'L1', 'L1_RECV', ..., 'DELIVERED', 'SUMMARY'];`.
+      *   Create `handleNext` and `handleBack` functions. These will find the index of the `currentStep` in `STORY_SEQUENCE` and use `setCurrentStep` to advance to `index + 1` or `index - 1`.
+      *   The "Reset" button will simply call `setCurrentStep('IDLE')`.
+      *   Pass these handlers down through the context provider.
+      *   **Why**: This centralizes navigation logic, making it robust and easy to modify, rather than having each scene manage its own "Next" step.
 
-85. **Add a Progress Indicator**
-    *   Inside the `HUD.jsx`, create a `ProgressIndicator` component.
-    *   It should map over the `LAYERS` data and display a small circle or square for each layer.
-    *   The indicator for the `currentLayer` should be highlighted (e.g., different color or size).
+101. **Add a Progress Indicator**
+      *   Inside the `HUD.jsx`, create a `ProgressIndicator` component.
+      *   It should map over the `LAYERS` data and display a small circle or square for each layer.
+      *   The indicator for the `currentLayer` should be highlighted (e.g., different color or size).
 
-86. **Implement Keyboard Navigation**
-    *   In `App.jsx`, use a `useEffect` to add a global `keydown` event listener to the `window`.
-    *   The event handler will listen for `ArrowRight` (to call `handleNext`), `ArrowLeft` (to call `handleBack`), and `r` (to call `handleReset`).
-    *   Remember to return a cleanup function from `useEffect` to remove the listener on unmount.
+102. **Implement Keyboard Navigation**
+      *   In `App.jsx`, use a `useEffect` to add a global `keydown` event listener to the `window`.
+      *   The event handler will listen for `ArrowRight` (to call `handleNext`), `ArrowLeft` (to call `handleBack`), and `r` (to call `handleReset`).
+      *   Remember to return a cleanup function from `useEffect` to remove the listener on unmount.
 
-87. **Add Tooltips for Technical Data**
-    *   In scenes like `L4_Transport`, `L3_Network`, and `L2_DataLink`, wrap the port/IP/MAC address elements in a `div` with a `title` attribute to provide simple, native browser tooltips.
-    *   Example: `<div title="Source Port: Ephemeral">49522</div>`.
-    *   For more advanced styling, a library like `react-tooltip` could be installed and used.
+103. **Add Tooltips for Technical Data**
+      *   In scenes like `L4_Transport`, `L3_Network`, and `L2_DataLink`, wrap the port/IP/MAC address elements in a `div` with a `title` attribute to provide simple, native browser tooltips.
+      *   Example: `<div title="Source Port: Ephemeral">49522</div>`.
+      *   For more advanced styling, a library like `react-tooltip` could be installed and used.
 
-88. **Commit UX Polish**
-    *   `git add . && git commit -m "feat: add global HUD, keyboard nav, and tooltips"`
+104. **Commit UX Polish**
+       *   `git add . && git commit -m "feat: add global HUD, keyboard nav, and tooltips"`
 
 ### Acceptance Criteria
 - [ ] **HUD Component Created**: A `HUD.jsx` component is rendered globally in `App.jsx`.
@@ -544,27 +680,27 @@
 
 ---
 
-## Phase 16 — Final Polish & Accuracy
+## Phase 22 — Final Polish & Accuracy
 
-89. **Review All Descriptive Text**
-    *   Read through every `desc` and `techNotes` field in `src/data/layers.js`.
-    *   Check for technical accuracy, clarity, and typos. Ensure the descriptions are easy for a non-expert to understand.
-    *   **Why**: The primary goal is education. The text must be correct and concise to be effective.
+105. **Review All Descriptive Text**
+       *   Read through every `desc` and `techNotes` field in `src/data/layers.js`.
+       *   Check for technical accuracy, clarity, and typos. Ensure the descriptions are easy for a non-expert to understand.
+       *   **Why**: The primary goal is education. The text must be correct and concise to be effective.
 
-90. **Validate Protocol Sample Data**
-    *   Double-check the `sample` data in `src/data/layers.js`.
-    *   **IPs**: Ensure they are from RFC 5737 TEST-NET blocks (e.g., `192.0.2.0/24`, `198.51.100.0/24`, `203.0.113.0/24`).
-    *   **Ports**: Ensure the source port is in the ephemeral range (49152–65535) and the destination is a common port (e.g., 443 for HTTPS).
-    *   **MACs**: Ensure they follow the correct 6-octet hexadecimal format.
-    *   **Why**: Using standardized, plausible data adds a layer of professionalism and technical credibility to the project.
+106. **Validate Protocol Sample Data**
+       *   Double-check the `sample` data in `src/data/layers.js`.
+       *   **IPs**: Ensure they are from RFC 5737 TEST-NET blocks (e.g., `192.0.2.0/24`, `198.51.100.0/24`, `203.0.113.0/24`).
+       *   **Ports**: Ensure the source port is in the ephemeral range (49152–65535) and the destination is a common port (e.g., 443 for HTTPS).
+       *   **MACs**: Ensure they follow the correct 6-octet hexadecimal format.
+       *   **Why**: Using standardized, plausible data adds a layer of professionalism and technical credibility to the project.
 
-91. **(Optional) Implement Error Simulation**
-    *   Add a new boolean state to `state.jsx`: `isErrorSimulated`. Add a toggle for it in the `HUD`.
-    *   In `L4_Transport.jsx`, modify the segmentation animation. If `isErrorSimulated` is true, the GSAP timeline should randomly pick one segment, animate it "dropping" (e.g., `opacity: 0, y: '+=50'`), and then, after a delay, animate a "retransmitted" copy of that segment appearing and rejoining the flow.
-    *   **Why**: This powerfully demonstrates one of TCP's core features—reliability and error correction.
+107. **(Optional) Implement Error Simulation**
+       *   Add a new boolean state to `state.jsx`: `isErrorSimulated`. Add a toggle for it in the `HUD`.
+       *   In `L4_Transport.jsx`, modify the segmentation animation. If `isErrorSimulated` is true, the GSAP timeline should randomly pick one segment, animate it "dropping" (e.g., `opacity: 0, y: '+=50'`), and then, after a delay, animate a "retransmitted" copy of that segment appearing and rejoining the flow.
+       *   **Why**: This powerfully demonstrates one of TCP's core features—reliability and error correction.
 
-92. **Commit Final Polish**
-    *   `git add . && git commit -m "chore: review text and validate technical data"`
+108. **Commit Final Polish**
+       *   `git add . && git commit -m "chore: review text and validate technical data"`
 
 ### Acceptance Criteria
 - [ ] **Text is Accurate and Clear**: All descriptive text throughout the application has been proofread and is free of errors.
@@ -573,38 +709,38 @@
 
 ---
 
-## Phase 17 — Packaging & Deployment
+## Phase 23 — Packaging & Deployment
 
-93. **Enhance the README.md**
-    *   Open `README.md` and add the following sections:
-        *   **Live Demo Link**: A placeholder for the final URL.
-        *   **Screenshot/GIF**: A high-quality animated GIF showcasing the full animation cycle.
-        *   **Tech Stack**: A list of key technologies used (React, Vite, GSAP, Framer Motion, Tailwind CSS).
-        *   **Local Development**: Clear, step-by-step instructions (`git clone`, `npm install`, `npm run dev`).
-        *   **Credits**: Acknowledge any assets, fonts, or inspiration.
-    *   **Why**: A good README is the front door to your project. It should make it easy for others to understand, run, and appreciate your work.
+109. **Enhance the README.md**
+       *   Open `README.md` and add the following sections:
+           *   **Live Demo Link**: A placeholder for the final URL.
+           *   **Screenshot/GIF**: A high-quality animated GIF showcasing the full animation cycle.
+           *   **Tech Stack**: A list of key technologies used (React, Vite, GSAP, Framer Motion, Tailwind CSS).
+           *   **Local Development**: Clear, step-by-step instructions (`git clone`, `npm install`, `npm run dev`).
+           *   **Credits**: Acknowledge any assets, fonts, or inspiration.
+       *   **Why**: A good README is the front door to your project. It should make it easy for others to understand, run, and appreciate your work.
 
-94. **Prepare for Production Build**
-    *   Run the build command: `npm run build`.
-    *   Verify that it completes without errors and that a `dist` directory is created with the optimized production assets.
-    *   **Why**: This catches any production-only issues before deployment.
+110. **Prepare for Production Build**
+       *   Run the build command: `npm run build`.
+       *   Verify that it completes without errors and that a `dist` directory is created with the optimized production assets.
+       *   **Why**: This catches any production-only issues before deployment.
 
-95. **Deploy to a Hosting Service (Vercel/Netlify)**
-    *   Create a new public repository on GitHub and push your code.
-    *   Sign up for Vercel or Netlify and connect your GitHub account.
-    *   Import the new repository.
-    *   Configure the project settings:
-        *   **Build Command**: `npm run build`
-        *   **Output Directory**: `dist`
-        *   **Install Command**: `npm install`
-    *   Deploy the site. Once live, update the README with the final URL.
-    *   **Why**: Vercel and Netlify offer a seamless, automated deployment pipeline for modern frontend apps, including continuous deployment on every push to `main`.
+111. **Deploy to a Hosting Service (Vercel/Netlify)**
+       *   Create a new public repository on GitHub and push your code.
+       *   Sign up for Vercel or Netlify and connect your GitHub account.
+       *   Import the new repository.
+       *   Configure the project settings:
+           *   **Build Command**: `npm run build`
+           *   **Output Directory**: `dist`
+           *   **Install Command**: `npm install`
+       *   Deploy the site. Once live, update the README with the final URL.
+       *   **Why**: Vercel and Netlify offer a seamless, automated deployment pipeline for modern frontend apps, including continuous deployment on every push to `main`.
 
-96. **Tag the Release**
-    *   Once the site is live and verified, create a Git tag to mark this version.
-    *   `git tag v1.0.0`
-    *   `git push --tags`
-    *   **Why**: Tagging creates a permanent reference point for a specific version of your project, making it easy to track releases and changes over time.
+112. **Tag the Release**
+       *   Once the site is live and verified, create a Git tag to mark this version.
+       *   `git tag v1.0.0`
+       *   `git push --tags`
+       *   **Why**: Tagging creates a permanent reference point for a specific version of your project, making it easy to track releases and changes over time.
 
 ### Acceptance Criteria
 - [ ] **README is Comprehensive**: The `README.md` file is fully updated with a description, GIF, tech stack, and local setup instructions.
@@ -615,38 +751,38 @@
 
 ---
 
-## Phase 18 — Stretch Goals (Optional)
+## Phase 24 — Stretch Goals (Optional)
 
 *These are ideas for future enhancements after the core application is complete.*
 
-97. **Add More Protocols**
-    *   **Concept**: Allow the user to select different application-layer protocols (e.g., SMTP, DNS) to see how the data and some layer behaviors change.
-    *   **Implementation**:
-        *   Add a protocol selector (e.g., a dropdown) in the `HUD`.
-        *   Create different `sample` data objects in `layers.js` for each protocol.
-        *   The `L7_Application` scene would need to render a different UI (e.g., an email client for SMTP).
-        *   The destination port in the L4 data would change (e.g., 25 for SMTP, 53 for DNS).
+113. **Add More Protocols**
+       *   **Concept**: Allow the user to select different application-layer protocols (e.g., SMTP, DNS) to see how the data and some layer behaviors change.
+       *   **Implementation**:
+           *   Add a protocol selector (e.g., a dropdown) in the `HUD`.
+           *   Create different `sample` data objects in `layers.js` for each protocol.
+           *   The `L7_Application` scene would need to render a different UI (e.g., an email client for SMTP).
+           *   The destination port in the L4 data would change (e.g., 25 for SMTP, 53 for DNS).
 
-98. **Implement a Theme Switcher**
-    *   **Concept**: Allow users to toggle between the default "Terminal Night" theme and a "Pastel Day" theme.
-    *   **Implementation**:
-        *   Add a theme state (`'dark' | 'light'`) to `state.jsx`.
-        *   In `tailwind.config.js`, use CSS variables for colors.
-        *   In `index.css`, define two root selectors (`:root` and `:root.light`) with different color variable values.
-        *   When the theme state changes, toggle the `.light` class on the `<html>` or `<body>` element.
+114. **Implement a Theme Switcher**
+       *   **Concept**: Allow users to toggle between the default "Terminal Night" theme and a "Pastel Day" theme.
+       *   **Implementation**:
+           *   Add a theme state (`'dark' | 'light'`) to `state.jsx`.
+           *   In `tailwind.config.js`, use CSS variables for colors.
+           *   In `index.css`, define two root selectors (`:root` and `:root.light`) with different color variable values.
+           *   When the theme state changes, toggle the `.light` class on the `<html>` or `<body>` element.
 
-99. **Improve Mobile Responsiveness**
-    *   **Concept**: Ensure the application is usable and looks good on smaller screens.
-    *   **Implementation**:
-        *   Use Tailwind's responsive prefixes (e.g., `md:`, `lg:`) to adjust layouts, font sizes, and element visibility.
-        *   The main `SceneCanvas` might need to scale down, or the layout could switch to a single-column format on mobile.
+115. **Improve Mobile Responsiveness**
+       *   **Concept**: Ensure the application is usable and looks good on smaller screens.
+       *   **Implementation**:
+           *   Use Tailwind's responsive prefixes (e.g., `md:`, `lg:`) to adjust layouts, font sizes, and element visibility.
+           *   The main `SceneCanvas` might need to scale down, or the layout could switch to a single-column format on mobile.
 
-100. **Performance Optimization Pass**
-     *   **Concept**: Ensure animations are smooth and the app is snappy, even with complex scenes.
-     *   **Implementation**:
-         *   Wrap components that don't need to re-render often in `React.memo`.
-         *   Use the React DevTools Profiler to identify and fix performance bottlenecks.
-         *   For GSAP, ensure timelines are properly killed on component unmount to prevent memory leaks (`return () => tl.kill();` in `useEffect`).
+116. **Performance Optimization Pass**
+       *   **Concept**: Ensure animations are smooth and the app is snappy, even with complex scenes.
+       *   **Implementation**:
+           *   Wrap components that don't need to re-render often in `React.memo`.
+           *   Use the React DevTools Profiler to identify and fix performance bottlenecks.
+           *   For GSAP, ensure timelines are properly killed on component unmount to prevent memory leaks (`return () => tl.kill();` in `useEffect`).
 
 ### Acceptance Criteria
 - [ ] **Features Implemented**: Any chosen stretch goals are functional, well-integrated, and meet the same quality standards as the core application.nore**
