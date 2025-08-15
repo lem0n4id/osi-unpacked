@@ -331,11 +331,11 @@
     *   `git add . && git commit -m "feat: build L4 Transport scene with segmentation"`
 
 ### Acceptance Criteria
-- [ ] **Component Renders**: `L4_Transport.jsx` is created and renders correctly.
-- [ ] **Data Displayed**: The scene correctly renders multiple "segment" elements from the `layerData.segments` array.
-- [ ] **Header Info Correct**: Each segment correctly displays the source port, destination port, and its unique sequence number.
-- [ ] **Segmentation Animation**: On scene load, a single data block is visually replaced by an animated sequence of smaller segments appearing.
-- [ ] **Navigation Works**: The "Next" button correctly transitions the state to the `L3` scene.
+- [x] **Component Renders**: `L4_Transport.jsx` is created and renders correctly.
+- [x] **Data Displayed**: The scene correctly renders multiple "segment" elements from the `layerData.segments` array.
+- [x] **Header Info Correct**: Each segment correctly displays the source port, destination port, and its unique sequence number.
+- [x] **Segmentation Animation**: On scene load, a single data block is visually fade in and animated sequence of smaller segments appears.
+- [x] **Navigation Works**: The "Next" button correctly transitions the state to the `L3` scene.
 
 ---
 
