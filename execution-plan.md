@@ -318,10 +318,11 @@
 
 56. **Animate Segmentation**
     *   In a `useEffect`, create a GSAP timeline.
-    *   Start with a single, large "Encrypted Data" block visible.
-    *   Animate the large block fading out while simultaneously animating the individual `Segment` components fading in and spacing themselves out.
-    *   A stagger effect is perfect here: `tl.from(segmentRefs.current, { opacity: 0, y: -50, stagger: 0.2 });`.
-    *   **Why**: This animation directly visualizes the core responsibility of Layer 4: breaking a large stream of data into smaller, manageable segments for transport.
+    *   Animate a single, large "Encrypted Data" block fading in.
+    *   Animate an arrow appearing and pointing downwards from the data block.
+    *   Animate the individual `Segment` components fading in below the arrow, spacing themselves out.
+    *   A stagger effect is perfect for the segments: `tl.fromTo(segmentRefs.current, { autoAlpha: 0, y: -20 }, { autoAlpha: 1, y: 0, stagger: 0.2 });`.
+    *   **Why**: This animation visually represents the process of taking a data stream and breaking it into smaller, manageable segments for transport.
 
 57. **Implement Navigation**
     *   Add a "Next: Network Layer" button that calls `setCurrentStep('L3')`.
