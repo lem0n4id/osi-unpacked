@@ -452,10 +452,10 @@
     *   `git add . && git commit -m "feat: build RX scene for L1 Physical signal arrival"`
 
 ### Acceptance Criteria
-- [ ] **Component Renders**: `RX_L1_Physical.jsx` is created, routed, and renders the full scene with both computers without errors.
-- [ ] **Signal Arrival Animated**: On scene load, an animation clearly shows signal pulses arriving at the destination NIC.
-- [ ] **NIC Glows**: The destination computer's NIC provides visual feedback (e.g., a glow or pulse) to indicate signal receipt.
-- [ ] **Navigation Works**: The "Next" button correctly transitions the application state to `L2_RECV`.
+- [x] **Component Renders**: `RX_L1_Physical.jsx` is created, routed, and renders the full scene with both computers without errors.
+- [x] **Signal Arrival Animated**: On scene load, an animation clearly shows signal pulses arriving at the destination NIC.
+- [x] **NIC Glows**: The destination computer's NIC provides visual feedback (e.g., a glow or pulse) to indicate signal receipt.
+- [x] **Navigation Works**: The "Next" button correctly transitions the application state to `L2_RECV`.
 
 ---
 
