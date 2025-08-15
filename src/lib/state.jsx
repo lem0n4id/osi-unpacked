@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext } from 'react';
+import React, { createContext, useState, useContext, useCallback } from 'react';
 
 const UIStateContext = createContext();
 
@@ -6,6 +6,14 @@ export const UIStateProvider = ({ children }) => {
   const [currentStep, setCurrentStep] = useState('IDLE');
   const [currentLayer, setCurrentLayer] = useState(null);
   const [direction, setDirection] = useState('forward');
+  const [characterStates, setCharacterStates] = useState({
+    left: 'idle',
+    right: 'idle',
+  });
+
+  const setCharacterState = useCallback((side, state) => {
+    setCharacterStates((prev) => ({ ...prev, [side]: state }));
+  }, []);
 
   const value = {
     currentStep,
@@ -14,6 +22,8 @@ export const UIStateProvider = ({ children }) => {
     setCurrentLayer,
     direction,
     setDirection,
+    characterStates,
+    setCharacterState,
   };
 
   return <UIStateContext.Provider value={value}>{children}</UIStateContext.Provider>;

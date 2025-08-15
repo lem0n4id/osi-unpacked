@@ -597,10 +597,10 @@
     *   `git add . && git commit -m "feat: build RX scene for L7 Application delivery"`
 
 ### Acceptance Criteria
-- [ ] **Component Renders**: `RX_L7_Application.jsx` is created, routed, and displays the receiver's application UI.
-- [ ] **Message Delivered**: The plain text message is correctly displayed in the receiver's chat window.
-- [ ] **Character Reacts**: The destination character's sprite changes to a "smile" state.
-- [ ] **Navigation Works**: The "Next" button correctly transitions the state to the `DELIVERED` scene.
+- [x] **Component Renders**: `RX_L7_Application.jsx` is created, routed, and displays the receiver's application UI.
+- [x] **Message Delivered**: The plain text message is correctly displayed in the receiver's chat window.
+- [x] **Character Reacts**: The destination character's sprite changes to a "smile" state.
+- [x] **Navigation Works**: The "Next" button correctly transitions the state to the `DELIVERED` scene.
 
 ---
 
