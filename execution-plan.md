@@ -428,10 +428,10 @@
     *   `git add . && git commit -m "feat: build L1 Physical scene with signal transmission"`
 
 ### Acceptance Criteria
-- [ ] **Component Renders**: `L1_Physical.jsx` is created and shows the full scene with both computers.
-- [ ] **Signal Animation**: On scene load, a stream of "bit" elements animates from the source computer to the destination computer.
-- [ ] **Animation Follows Path**: The animation path correctly follows the SVG cable connecting the two computers.
-- [ ] **Reverse Navigation Works**: Clicking the button correctly updates the application state (`direction` to `reverse`, `currentStep` to `L1_RECV`) to start the reverse journey.
+- [x] **Component Renders**: `L1_Physical.jsx` is created and shows the full scene with both computers.
+- [x] **Signal Animation**: On scene load, a stream of "bit" elements animates from the source computer to the destination computer.
+- [x] **Animation Follows Path**: The animation path correctly follows the SVG cable connecting the two computers.
+- [x] **Reverse Navigation Works**: Clicking the button correctly updates the application state (`direction` to `reverse`, `currentStep` to `L1_RECV`) to start the reverse journey.
 
 ---
 
