@@ -662,7 +662,7 @@
       *   The event handler will listen for `ArrowRight` (to call `handleNext`), `ArrowLeft` (to call `handleBack`), and `r` (to call `handleReset`).
       *   Remember to return a cleanup function from `useEffect` to remove the listener on unmount.
 
-103. **Add Tooltips for Technical Data**
+103. Not implemented **Add Tooltips for Technical Data** - **Too complex**
       *   In scenes like `L4_Transport`, `L3_Network`, and `L2_DataLink`, wrap the port/IP/MAC address elements in a `div` with a `title` attribute to provide simple, native browser tooltips.
       *   Example: `<div title="Source Port: Ephemeral">49522</div>`.
       *   For more advanced styling, a library like `react-tooltip` could be installed and used.
@@ -671,12 +671,12 @@
        *   `git add . && git commit -m "feat: add global HUD, keyboard nav, and tooltips"`
 
 ### Acceptance Criteria
-- [ ] **HUD Component Created**: A `HUD.jsx` component is rendered globally in `App.jsx`.
-- [ ] **Data-Driven Navigation**: Navigation is handled by centralized `handleNext`/`handleBack` functions that use a sequence array.
-- [ ] **Functional Controls**: The "Next," "Back," and "Reset" buttons in the HUD correctly control the flow of the story.
-- [ ] **Keyboard Shortcuts**: The `ArrowRight`, `ArrowLeft`, and `r` keys successfully trigger the corresponding navigation actions.
-- [ ] **Progress Indicator Works**: A visual indicator in the HUD accurately highlights the current OSI layer being viewed.
-- [ ] **Tooltips Implemented**: Hovering over IP addresses, MAC addresses, or port numbers in their respective scenes displays a helpful tooltip.
+- [x] **HUD Component Created**: A `HUD.jsx` component is rendered globally in `App.jsx`.
+- [x] **Data-Driven Navigation**: Navigation is handled by centralized `handleNext`/`handleBack` functions that use a sequence array.
+- [x] **Functional Controls**: The "Next," "Back," and "Reset" buttons in the HUD correctly control the flow of the story.
+- [x] **Keyboard Shortcuts**: The `ArrowRight`, `ArrowLeft`, and `r` keys successfully trigger the corresponding navigation actions.
+- [x] **Progress Indicator Works**: A visual indicator in the HUD accurately highlights the current OSI layer being viewed.
+- [ ] **Tooltips Implemented**: Hovering over IP addresses, MAC addresses, or port numbers in their respective scenes displays a helpful tooltip. - **too complex**
 
 ---
 
