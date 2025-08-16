@@ -1,30 +1,30 @@
-# OSI Unpacked
+# 📦 OSI Unpacked
 
-A cinematic, step-by-step visualizer for the OSI model, built with React, Vite, GSAP, and Tailwind CSS. This project aims to make the layers of network communication intuitive and engaging through pixel-art animation.
+A cinematic, step-by-step visualizer for the OSI model, built with React, Vite, GSAP, and Tailwind CSS. This project aims to make the layers of network communication intuitive and engaging through pixel-art animation. 🎨
 
-## Live Demo
+## 🚀 Live Demo
 
-[Link to deployed application will go here]
+[https://osi-unpacked.vercel.app/](https://osi-unpacked.vercel.app/)
 
-## Screenshot/GIF
+## 📸 Screenshot
 
-[Animated GIF of the application in action will go here]
+<img src="screenshot.png" alt="OSI Unpacked Screenshot" width="600"/>
 
-## Tech Stack
+## 🛠️ Tech Stack
 
-- **Framework**: [React](https://reactjs.org/) via [Vite](https://vitejs.dev/)
-- **Animation**: [GSAP (GreenSock Animation Platform)](https://greensock.com/gsap/) & [Framer Motion](https://www.framer.com/motion/)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
-- **Icons**: [React Icons](https://react-icons.github.io/react-icons/)
-- **Font**: [VT323](https://fonts.google.com/specimen/VT323)
+-   **Framework**: [React](https://reactjs.org/) via [Vite](https://vitejs.dev/) ⚛️
+-   **Animation**: [GSAP (GreenSock Animation Platform)](https://greensock.com/gsap/) & [Framer Motion](https://www.framer.com/motion/) ✨
+-   **Styling**: [Tailwind CSS](https://tailwindcss.com/) 💅
+-   **Icons**: [React Icons](https://react-icons.github.io/react-icons/) 👾
+-   **Font**: [VT323](https://fonts.google.com/specimen/VT323) ✒️
 
-## Local Development
+## 💻 Local Development
 
 To run this project locally, follow these steps:
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/your-username/osi-unpacked.git
+    git clone https://github.com/lem0n4id/osi-unpacked.git
     cd osi-unpacked
     ```
 
@@ -39,7 +39,7 @@ To run this project locally, follow these steps:
     ```
     The application will be available at `http://localhost:5173`.
 
-## Credits
+## 🙏 Credits
 
-- Inspired by the desire to make network education more visual and fun.
-- Built with the help of countless open-source libraries and community resources.
+-   Inspired by the desire to make network education more visual and fun.
+-   Built with the help of countless open-source libraries and community resources.
