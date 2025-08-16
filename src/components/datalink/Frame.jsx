@@ -6,7 +6,6 @@ const Frame = React.forwardRef(({ frameHeader, children, headerRef, headerInfoRe
         <p>MAC HDR</p>
       </div>
       <div ref={headerInfoRef} className="absolute top-full mt-1 left-0 w-full text-center text-xs font-mono text-purple-300 bg-black/50 p-1 rounded">
-unded">
         <p>SRC: {frameHeader.src}</p>
         <p>DST: {frameHeader.dst}</p>
       </div>
