@@ -630,11 +630,11 @@
     *   `git add . && git commit -m "feat: build Delivered and Summary scenes"`
 
 ### Acceptance Criteria
-- [ ] **Delivered Scene Renders**: `Delivered.jsx` correctly displays the final message and the smiling character sprite.
-- [ ] **Summary Scene Renders**: `Summary.jsx` correctly maps over the layer data and displays a list of all 7 layers with their icons and descriptions.
-- [ ] **Summary Animation**: On scene load, the list of OSI layers animates into view sequentially.
-- [ ] **Replay Functionality**: Clicking the "Replay Story" button correctly resets the application state, causing the `SceneRouter` to render the `IdleScene`.
-- [ ] **Navigation Works**: The "View Summary" button correctly transitions from the `Delivered` scene to the `Summary` scene.
+- [x] **Delivered Scene Renders**: `Delivered.jsx` correctly displays the final message and the smiling character sprite.
+- [x] **Summary Scene Renders**: `Summary.jsx` correctly maps over the layer data and displays a list of all 7 layers with their icons and descriptions.
+- [x] **Summary Animation**: On scene load, the list of OSI layers animates into view sequentially.
+- [x] **Replay Functionality**: Clicking the "Replay Story" button correctly resets the application state, causing the `SceneRouter` to render the `IdleScene`.
+- [x] **Navigation Works**: The "View Summary" button correctly transitions from the `Delivered` scene to the `Summary` scene.
 
 ---
 
