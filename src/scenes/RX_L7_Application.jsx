@@ -62,7 +62,7 @@ export default function RX_L7_Application() {
         <div className="flex flex-col items-center">
           <MessagingApp title="Receiver's Chat">
             <div className="p-4">
-              <ChatBubble text={l6Data.sample.plain} ref={msgRef} />
+              <ChatBubble text={l6Data.sample.plain} ref={msgRef} isAnimated={true} />
             </div>
           </MessagingApp>
         </div>

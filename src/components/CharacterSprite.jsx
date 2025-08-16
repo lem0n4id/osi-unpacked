@@ -1,15 +1,21 @@
 import React from 'react';
+import { useUIState } from '../lib/state';
 
-const CharacterSprite = ({ state }) => {
-  const baseStyle = "w-16 h-24 bg-gray-500 rounded-md";
-  
+const CharacterSprite = ({ side }) => {
+  const { characterStates } = useUIState();
+  const state = characterStates[side] || 'idle';
+
+  // Base styles for the sprite container
+  const baseStyle = "w-24 h-32 bg-gray-500 rounded-md flex items-center justify-center";
+
+  // Determine state-specific styles
   let stateStyle = '';
   switch (state) {
     case 'typing':
       stateStyle = 'animate-pulse';
       break;
     case 'smile':
-      stateStyle = 'border-4 border-yellow-400';
+      stateStyle = 'shadow-xl shadow-yellow-400/50 border-2 border-yellow-500';
       break;
     case 'idle':
     default:
@@ -17,12 +23,26 @@ const CharacterSprite = ({ state }) => {
       break;
   }
 
-return (
+  const getSprite = () => {
+    switch (state) {
+      case 'smile':
+        return '/character_smiling.svg';
+      case 'typing':
+      case 'idle':
+      default:
+        return '/character_idle.svg';
+    }
+  };
+
+  return (
     <div className={`${baseStyle} ${stateStyle} flex items-center justify-center`}>
-        
-        <img src="/character.svg" alt="Character" className="w-full h-full" />
+      <img
+        src={getSprite()}
+        alt={`Character (${state})`}
+        className="w-full h-full object-contain"
+      />
     </div>
-);
+  );
 };
 
 export default CharacterSprite;

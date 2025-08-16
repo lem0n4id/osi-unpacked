@@ -16,6 +16,8 @@ import RX_L4_Transport from './RX_L4_Transport.jsx';
 import RX_L5_Session from './RX_L5_Session.jsx';
 import RX_L6_Presentation from './RX_L6_Presentation.jsx';
 import RX_L7_Application from './RX_L7_Application.jsx';
+import Delivered from './Delivered.jsx';
+import Summary from './Summary.jsx';
 
 const sceneTransition = {
   initial: { opacity: 0 },
@@ -71,6 +73,12 @@ const SceneRouter = () => {
         break;
       case 'L7_RECV':
         sceneComponent = <RX_L7_Application />;
+        break;
+      case 'DELIVERED':
+        sceneComponent = <Delivered />;
+        break;
+      case 'SUMMARY':
+        sceneComponent = <Summary />;
         break;
       case 'IDLE':
       default:

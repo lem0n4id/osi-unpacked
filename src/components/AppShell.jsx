@@ -27,7 +27,9 @@ const AppShell = ({ children }) => {
         <h1 className="text-2xl text-green-400">OSI Story</h1>
       </header>
       <main className="w-full max-w-5xl flex-grow">
-        {children}
+        <div className="w-full h-full transition-transform duration-300 ease-in-out scale-[0.90] lg-custom:scale-100">
+          {children}
+        </div>
       </main>
       <footer className="w-full max-w-5xl py-2 mt-4 text-center text-gray-500 border-t border-gray-700">
         <p>Built with React, GSAP, and Tailwind CSS</p>
