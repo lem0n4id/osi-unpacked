@@ -1,12 +1,45 @@
-# React + Vite
+# OSI Unpacked
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A cinematic, step-by-step visualizer for the OSI model, built with React, Vite, GSAP, and Tailwind CSS. This project aims to make the layers of network communication intuitive and engaging through pixel-art animation.
 
-Currently, two official plugins are available:
+## Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[Link to deployed application will go here]
 
-## Expanding the ESLint configuration
+## Screenshot/GIF
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+[Animated GIF of the application in action will go here]
+
+## Tech Stack
+
+- **Framework**: [React](https://reactjs.org/) via [Vite](https://vitejs.dev/)
+- **Animation**: [GSAP (GreenSock Animation Platform)](https://greensock.com/gsap/) & [Framer Motion](https://www.framer.com/motion/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Icons**: [React Icons](https://react-icons.github.io/react-icons/)
+- **Font**: [VT323](https://fonts.google.com/specimen/VT323)
+
+## Local Development
+
+To run this project locally, follow these steps:
+
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/your-username/osi-unpacked.git
+    cd osi-unpacked
+    ```
+
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
+
+3.  **Run the development server:**
+    ```bash
+    npm run dev
+    ```
+    The application will be available at `http://localhost:5173`.
+
+## Credits
+
+- Inspired by the desire to make network education more visual and fun.
+- Built with the help of countless open-source libraries and community resources.

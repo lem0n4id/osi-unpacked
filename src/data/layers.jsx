@@ -17,7 +17,7 @@ export const LAYERS = [
     desc: 'The Application Layer provides the interface for applications to access network services. This is what the user sees, like web browsers (HTTP), email clients (SMTP), and file transfer programs (FTP).',
     techNotes: 'Our visualization shows a messaging app sending a simple text message. The data is a standard HTTP POST request.',
     sample: `POST /api/message HTTP/1.1
-Host: osi-story.dev
+Host: osi-unpacked.dev
 Content-Type: text/plain
 Content-Length: 12
 

@@ -1,4 +1,4 @@
-# OSI Story App — Step-by-Step Build Plan (React + GSAP + Tailwind + Framer Motion)
+# OSI Unpacked App — Step-by-Step Build Plan (React + GSAP + Tailwind + Framer Motion)
 
 > Goal: Build a cinematic, pixel-art OSI model visualizer with two characters, a wire between them, and step-through scenes for each OSI layer. Each step is a tiny, focused task (aim for 5–20 minutes per step). Commit after most steps.
 

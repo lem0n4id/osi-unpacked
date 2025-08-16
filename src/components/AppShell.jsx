@@ -24,7 +24,7 @@ const AppShell = ({ children }) => {
         </button>
       </div>
       <header className="w-full max-w-5xl py-2 mb-4 border-b border-gray-700">
-        <h1 className="text-2xl text-green-400">OSI Story</h1>
+        <h1 className="text-2xl text-green-400">OSI Unpacked</h1>
       </header>
       <main className="w-full max-w-5xl">
         <div className="w-full transition-transform duration-300 ease-in-out scale-[0.90] lg-custom:scale-100">
