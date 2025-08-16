@@ -11,7 +11,7 @@ const AppShell = ({ children }) => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen p-4">
+    <div className="flex flex-col items-center justify-start p-4">
       <div className="absolute top-4 right-4 flex items-center gap-4">
         <span className="text-md text-gray-400 bg-gray-800 px-3 py-1 rounded">
           STEP: {currentStep} | DIR: {direction}
@@ -26,8 +26,8 @@ const AppShell = ({ children }) => {
       <header className="w-full max-w-5xl py-2 mb-4 border-b border-gray-700">
         <h1 className="text-2xl text-green-400">OSI Story</h1>
       </header>
-      <main className="w-full max-w-5xl flex-grow">
-        <div className="w-full h-full transition-transform duration-300 ease-in-out scale-[0.90] lg-custom:scale-100">
+      <main className="w-full max-w-5xl">
+        <div className="w-full transition-transform duration-300 ease-in-out scale-[0.90] lg-custom:scale-100">
           {children}
         </div>
       </main>
