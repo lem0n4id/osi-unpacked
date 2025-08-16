@@ -39,9 +39,9 @@ Hello World!`,
   {
     id: 5,
     name: 'Session',
-    shortDesc: 'Maintains connections and is responsible for controlling ports and sessions.',
+    shortDesc: 'Manages the dialogue between computers, establishing, managing, and terminating connections.',
     desc: 'The Session Layer establishes, manages, and terminates connections between applications. It handles session checkpointing, and recovery.',
-    techNotes: 'We visualize the classic three-way handshake (SYN, SYN-ACK, ACK) used by TCP to establish a reliable connection before data is sent.',
+    techNotes: "To visualize session establishment, we're showing the TCP three-way handshake (SYN, SYN-ACK, ACK). While technically a Layer 4 process, it's a classic way to represent the start of a reliable session.",
     sample: {
       step1: { name: 'SYN', Seq: 0, Ack: 0 },
       step2: { name: 'SYN-ACK', Seq: 0, Ack: 1 },
@@ -52,7 +52,7 @@ Hello World!`,
   {
     id: 4,
     name: 'Transport',
-    shortDesc: 'Provides reliable data transfer and error correction between points on a network.',
+    shortDesc: 'Provides reliable, end-to-end data transfer and error correction between hosts.',
     desc: 'The Transport Layer provides reliable, end-to-end communication services. It segments data from the session layer and reassembles it on the receiving end. TCP (reliable) and UDP (fast) are key protocols here.',
     techNotes: 'The encrypted data is broken into smaller TCP segments. Each segment gets a source and destination port number, plus a sequence number for reassembly.',
     sample: {
