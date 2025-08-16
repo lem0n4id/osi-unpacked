@@ -743,8 +743,8 @@
        *   **Why**: Tagging creates a permanent reference point for a specific version of your project, making it easy to track releases and changes over time.
 
 ### Acceptance Criteria
-- [ ] **README is Comprehensive**: The `README.md` file is fully updated with a description, GIF, tech stack, and local setup instructions.
-- [ ] **Successful Production Build**: The `npm run build` command executes without errors.
+- [x] **README is Comprehensive**: The `README.md` file is fully updated with a description, GIF, tech stack, and local setup instructions.
+- [x] **Successful Production Build**: The `npm run build` command executes without errors.
 - [ ] **Application is Deployed**: The project is live on a public URL provided by Vercel, Netlify, or a similar service.
 - [ ] **Live URL in README**: The README's demo link points to the deployed application.
 - [ ] **v1.0.0 Tag Pushed**: A `v1.0.0` tag exists in the GitHub repository.one-liner description.
