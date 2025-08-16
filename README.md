@@ -8,7 +8,7 @@ A cinematic, step-by-step visualizer for the OSI model, built with React, Vite, 
 
 ## 📸 Screenshot
 
-<img src="screenshot.png" alt="OSI Unpacked Screenshot" width="600"/>
+<img src="screenshot.png" alt="OSI Unpacked Screenshot" width="600" style="border: 2px solid #ccc; border-radius: 8px;"/>
 
 ## 🛠️ Tech Stack
 
