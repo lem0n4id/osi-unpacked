@@ -27,24 +27,24 @@ export default function Delivered() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="w-full h-full flex flex-col items-center justify-center p-8"
+      className="w-full h-full flex flex-col items-center justify-center p-4 md:p-8"
     >
-      <h2 className="text-4xl font-bold mb-4 text-green-400">
+      <h2 className="text-3xl md:text-4xl font-bold mb-2 md:mb-4 text-green-400 text-center">
         Message Delivered!
       </h2>
-      <p className="text-xl mb-8">The data has completed its journey.</p>
+      <p className="text-lg md:text-xl mb-4 md:mb-8 text-center">The data has completed its journey.</p>
 
-      <div className="flex-grow w-full flex items-center justify-around px-66">
+      <div className="flex-grow w-full flex flex-col md:flex-row items-center justify-around gap-4 md:gap-0 px-4 md:px-66">
         {/* Sender Character */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2 md:gap-4">
           <CharacterSprite side="left" />
           <ComputerSprite />
         </div>
 
         {/* Messaging App */}
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center w-full md:w-auto">
           <MessagingApp title="Receiver's Chat">
-            <div className="p-4">
+            <div className="p-2 md:p-4">
               {/* We don't need a ref here since it's not being animated */}
               <ChatBubble text={l6Data.sample.plain} />
             </div>
@@ -52,7 +52,7 @@ export default function Delivered() {
         </div>
 
         {/* Receiver Character & Response */}
-        <div className="flex flex-col items-end">
+        <div className="flex flex-col items-center md:items-end">
           <ChatBubble text="Got it!" align="right" className="mb-2" />
 
         <div className="flex items-center justify-end gap-2">
@@ -62,7 +62,7 @@ export default function Delivered() {
         </div>
       </div>
 
-      <div className="mt-8">
+      <div className="mt-4 md:mt-8">
         <Button onClick={() => setCurrentStep("SUMMARY")}>View Summary</Button>
       </div>
     </motion.div>

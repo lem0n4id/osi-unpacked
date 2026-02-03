@@ -46,29 +46,29 @@ export default function RX_L7_Application() {
   }, [setCharacterState]);
 
   return (
-    <div className="w-full h-full flex flex-col items-center justify-center p-8">
-      <h2 className="text-3xl font-bold mb-4 text-green-400">
+    <div className="w-full h-full flex flex-col items-center justify-center p-4 md:p-8">
+      <h2 className="text-2xl md:text-3xl font-bold mb-2 md:mb-4 text-green-400 text-center">
         Layer 7: Application (Receiving)
       </h2>
-      <p className="text-lg mb-8">The message is delivered to the application.</p>
+      <p className="text-sm md:text-lg mb-4 md:mb-8 text-center">The message is delivered to the application.</p>
 
-      <div className="flex-grow w-full flex items-center justify-around px-66">
-        <div className="flex items-center gap-4">
+      <div className="flex-grow w-full flex flex-col md:flex-row items-center justify-around gap-4 md:gap-0 px-4 md:px-66">
+        <div className="flex items-center gap-2 md:gap-4">
           <CharacterSprite side="left" />
           <ComputerSprite />
         </div>
 
         {/* Messaging App in the middle */}
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center w-full md:w-auto">
           <MessagingApp title="Receiver's Chat">
-            <div className="p-4">
+            <div className="p-2 md:p-4">
               <ChatBubble text={l6Data.sample.plain} ref={msgRef} isAnimated={true} />
             </div>
           </MessagingApp>
         </div>
 
         {/* Receiver Character */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2 md:gap-4">
           <ComputerSprite />
           <CharacterSprite side="right" />
         </div>
