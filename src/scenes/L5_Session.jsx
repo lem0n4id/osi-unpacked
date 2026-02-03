@@ -57,27 +57,27 @@ export default function L5_Session() {
   const { step1, step2, step3 } = layerData.sample;
 
   return (
-    <div className="w-full h-full flex flex-col p-8 relative">
+    <div className="w-full h-full flex flex-col p-4 md:p-8 relative">
       <div className="flex-grow flex flex-col justify-center items-center gap-1 overflow-y-auto">
         <div className="flex justify-between w-full max-w-4xl flex-shrink-0">
-            <div>
-                <FaComputer className="text-6xl text-blue-400" />
-                <p>Client</p>
+            <div className="text-center">
+                <FaComputer className="text-4xl md:text-6xl text-blue-400" />
+                <p className="text-sm md:text-base">Client</p>
             </div>
-            <div>
-                <FaComputer className="text-6xl text-purple-400" />
-                <p>Server</p>
+            <div className="text-center">
+                <FaComputer className="text-4xl md:text-6xl text-purple-400" />
+                <p className="text-sm md:text-base">Server</p>
             </div>
         </div>
 
         <div className="w-full max-w-4xl z-10">
-            <div ref={synRef} className="w-1/3">
+            <div ref={synRef} className="w-full md:w-1/3">
                 <HandshakePacket from="Client" to="Server" {...step1} />
             </div>
-            <div ref={synAckRef} className="w-1/3 ml-auto">
+            <div ref={synAckRef} className="w-full md:w-1/3 md:ml-auto">
                 <HandshakePacket from="Server" to="Client" {...step2} />
             </div>
-            <div ref={ackRef} className="w-1/3">
+            <div ref={ackRef} className="w-full md:w-1/3">
                 <HandshakePacket from="Client" to="Server" {...step3} />
             </div>
         </div>
@@ -87,10 +87,10 @@ export default function L5_Session() {
         <InfoBox layer={layerData} />
       </div>
 
-      <div className="absolute bottom-8 right-8">
+      <div className="mt-4 md:absolute md:bottom-8 md:right-8 flex justify-end">
         <button
           onClick={() => setCurrentStep('L4')}
-          className="px-2 py-1 mb-2 mr-2 bg-green-500 text-black font-bold rounded hover:bg-green-400 transition-colors"
+          className="px-2 py-1 bg-green-500 text-black font-bold rounded hover:bg-green-400 transition-colors text-sm md:text-base"
         >
           Next: Transport Layer
         </button>
