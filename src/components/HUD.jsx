@@ -11,7 +11,7 @@ const HUD = () => {
   const layerData = LAYERS.find(l => l.id === currentLayer);
 
   return (
-    <div className="fixed bottom-2 md:bottom-4 left-1/2 -translate-x-1/2 w-[95vw] md:w-full md:max-w-xl mx-auto z-50">
+    <div className="fixed bottom-2 md:bottom-4 left-1/2 -translate-x-1/2 w-[95vw] md:w-full md:max-w-xl z-50">
       <div className="bg-gray-800/80 backdrop-blur-sm text-white p-2 rounded-lg shadow-lg flex flex-col md:flex-row items-center justify-between gap-2">
         <div className="flex gap-2 w-full md:w-auto">
           <button

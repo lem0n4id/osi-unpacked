@@ -78,7 +78,7 @@ export default function RX_L1_Physical() {
         <div className="flex items-end space-x-2 md:space-x-4">
           <div className="relative">
             <ComputerSprite />
-            <div ref={nicRef} className="absolute bottom-12 md:bottom-20 mb-2 -right-2 md:-right-4 scale-50 md:scale-75">
+            <div ref={nicRef} className="absolute bottom-12 md:bottom-20 mb-2 -right-2 md:-right-4 scale-[0.6] md:scale-75">
                 <NIC />
             </div>
           </div>
