@@ -30,10 +30,10 @@ export default function L3_Network() {
   if (!layerData || !l4Data) return null;
 
 return (
-    <div className="w-full h-full flex flex-col p-8 relative">
-        <div ref={containerRef} className="flex-grow flex flex-col justify-center items-center gap-8">
+    <div className="w-full h-full flex flex-col p-4 md:p-8 relative">
+        <div ref={containerRef} className="flex-grow flex flex-col justify-center items-center gap-4 md:gap-8">
             {/* Packets */}
-            <div className="flex justify-center items-center gap-4">
+            <div className="flex flex-col md:flex-row justify-center items-center gap-2 md:gap-4 w-full overflow-x-auto">
                 {l4Data.sample.segments.map((seg, i) => (
                     <Packet
                         key={seg.seq}
@@ -47,31 +47,31 @@ return (
             </div>
 
             {/* Routing Path */}
-            <div className="w-full max-w-4xl flex justify-between items-center mt-8">
+            <div className="w-full max-w-4xl flex flex-col md:flex-row justify-between items-center mt-4 md:mt-8 gap-2 md:gap-0">
                     <div className="flex flex-col items-center">
-                        <FaComputer className="text-5xl text-green-400" />
+                        <FaComputer className="text-3xl md:text-5xl text-green-400" />
                         <span className="text-xs font-mono">{layerData.sample.ip.src}</span>
                     </div>
-                    <div className="flex-grow h-1 bg-gray-700 mx-4"></div>
+                    <div className="hidden md:block flex-grow h-1 bg-gray-700 mx-4"></div>
                         <RouterIcon label="R1" />
-                    <div className="flex-grow h-1 bg-gray-700 mx-4"></div>
+                    <div className="hidden md:block flex-grow h-1 bg-gray-700 mx-4"></div>
                         <RouterIcon label="R2" />
-                    <div className="flex-grow h-1 bg-gray-700 mx-4"></div>
+                    <div className="hidden md:block flex-grow h-1 bg-gray-700 mx-4"></div>
                     <div className="flex flex-col items-center">
-                        <FaComputer className="text-5xl text-yellow-400" />
+                        <FaComputer className="text-3xl md:text-5xl text-yellow-400" />
                         <span className="text-xs font-mono">{layerData.sample.ip.dst}</span>
                     </div>
             </div>
         </div>
         
-        <div className="mt-8">
+        <div className="mt-4 md:mt-8">
             <InfoBox layer={layerData} />
         </div>
 
-        <div className="absolute bottom-8 right-8">
+        <div className="mt-4 md:absolute md:bottom-8 md:right-8 flex justify-end">
             <button
                 onClick={() => setCurrentStep('L2')}
-                className="px-2 py-1 mb-2 mr-2 bg-green-500 text-black font-bold rounded hover:bg-green-400 transition-colors"
+                className="px-2 py-1 bg-green-500 text-black font-bold rounded hover:bg-green-400 transition-colors text-sm md:text-base"
             >
                 Next: Data Link Layer
             </button>

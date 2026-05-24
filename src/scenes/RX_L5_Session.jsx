@@ -43,22 +43,22 @@ const RX_L5_Session = () => {
   };
 
   return (
-    <motion.div variants={scene} initial="hidden" animate="visible" exit="hidden" className="flex flex-col items-center justify-center h-full bg-gray-900 text-white p-8 relative">
-      <h2 className="text-3xl font-bold mb-4 text-orange-400">Layer 5: Session (Receiving)</h2>
-      <p className="text-lg mb-8">The session established earlier is still active.</p>
+    <motion.div variants={scene} initial="hidden" animate="visible" exit="hidden" className="flex flex-col items-center justify-center h-full bg-gray-900 text-white p-4 md:p-8 relative">
+      <h2 className="text-2xl md:text-3xl font-bold mb-2 md:mb-4 text-orange-400 text-center">Layer 5: Session (Receiving)</h2>
+      <p className="text-sm md:text-lg mb-4 md:mb-8 text-center">The session established earlier is still active.</p>
       
       <div className="flex-grow flex items-center justify-center">
         <div ref={iconRef}>
-          <FaCheckCircle className="text-9xl text-green-500" />
+          <FaCheckCircle className="text-6xl md:text-9xl text-green-500" />
         </div>
       </div>
 
       {showInfo && (
-        <motion.div variants={fadeIn} initial="hidden" animate="visible" exit="hidden" className="w-full max-w-3xl absolute -bottom-4">
+        <motion.div variants={fadeIn} initial="hidden" animate="visible" exit="hidden" className="w-full max-w-3xl mt-4 md:absolute md:-bottom-4">
           <InfoBox layer={layerData}>
-            <p>The Session Layer confirms that the session is still open and manages the dialogue between the two computers. Since the connection is stable, the data is passed up to the Presentation Layer.</p>
+            <p className="text-sm md:text-base">The Session Layer confirms that the session is still open and manages the dialogue between the two computers. Since the connection is stable, the data is passed up to the Presentation Layer.</p>
           </InfoBox>
-          <div className="mt-8 text-center">
+          <div className="mt-4 md:mt-8 text-center">
             <Button onClick={handleNext}>Next: Decrypt Data</Button>
           </div>
         </motion.div>

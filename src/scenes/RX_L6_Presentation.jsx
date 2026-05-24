@@ -65,7 +65,7 @@ export default function RX_L6_Presentation() {
     return (
       <div
         ref={plainRef}
-        className="p-4 bg-black/50 rounded whitespace-pre-wrap font-mono text-lg"
+        className="p-2 md:p-4 bg-black/50 rounded whitespace-pre-wrap font-mono text-xs md:text-lg"
       >
         {text.split("").map((char, i) => (
           <span key={i} className="inline-block">
@@ -77,17 +77,17 @@ export default function RX_L6_Presentation() {
   };
 
   return (
-    <div className="w-full h-full flex flex-col items-center justify-center">
-      <h2 className="text-3xl font-bold mb-4 text-purple-400">Layer 6: Presentation (Receiving)</h2>
-      <p className="text-lg mb-8">The encrypted data is now being decrypted.</p>
+    <div className="w-full h-full flex flex-col items-center justify-center p-4 md:p-8">
+      <h2 className="text-2xl md:text-3xl font-bold mb-2 md:mb-4 text-purple-400 text-center">Layer 6: Presentation (Receiving)</h2>
+      <p className="text-sm md:text-lg mb-4 md:mb-8 text-center">The encrypted data is now being decrypted.</p>
       <div
         ref={containerRef}
-        className="w-3/4 max-w-4xl p-8 bg-gray-800/50 rounded-lg flex flex-col items-center gap-6 invisible"
+        className="w-full md:w-3/4 max-w-4xl p-4 md:p-8 bg-gray-800/50 rounded-lg flex flex-col items-center gap-4 md:gap-6 invisible"
       >
         <div className="relative w-full flex justify-center items-center">
           <div
             ref={encodedRef}
-            className="p-4 bg-black/50 rounded whitespace-pre-wrap font-mono text-lg"
+            className="p-2 md:p-4 bg-black/50 rounded whitespace-pre-wrap font-mono text-xs md:text-lg break-all"
           >
             {layerData.sample.encoded}
           </div>
@@ -98,10 +98,10 @@ export default function RX_L6_Presentation() {
 
         <div className="relative">
           <div ref={lockRef}>
-            <VscLock size={40} className="text-red-500" />
+            <VscLock size={32} className="text-red-500 md:w-10 md:h-10" />
           </div>
           <div ref={unlockRef} className="absolute top-0 left-0 opacity-0">
-            <VscUnlock size={40} className="text-green-500" />
+            <VscUnlock size={32} className="text-green-500 md:w-10 md:h-10" />
           </div>
         </div>
       </div>
@@ -112,7 +112,7 @@ export default function RX_L6_Presentation() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 20 }}
-            className="mt-4 w-3/4 max-w-4xl"
+            className="mt-4 w-full md:w-3/4 max-w-4xl"
           >
             <InfoBox layer={layerData} />
           </motion.div>

@@ -49,20 +49,20 @@ const RX_L4_Transport = () => {
     if (!layerData) return null;
 
     return (
-        <motion.div variants={scene} initial="hidden" animate="visible" exit="hidden" className="flex flex-col items-center justify-start h-full bg-gray-900 text-white p-8 pt-16">
-            <h2 className="text-3xl font-bold mb-4 text-teal-400">Layer 4: Transport (Receiving)</h2>
-            <p className="text-lg mb-8 max-w-2xl text-center">Segments are reordered by sequence number and reassembled into a single data stream.</p>
+        <motion.div variants={scene} initial="hidden" animate="visible" exit="hidden" className="flex flex-col items-center justify-start h-full bg-gray-900 text-white p-4 md:p-8 pt-8 md:pt-16">
+            <h2 className="text-2xl md:text-3xl font-bold mb-2 md:mb-4 text-teal-400 text-center">Layer 4: Transport (Receiving)</h2>
+            <p className="text-sm md:text-lg mb-4 md:mb-8 max-w-2xl text-center">Segments are reordered by sequence number and reassembled into a single data stream.</p>
             <div className="flex-grow flex flex-col justify-center items-center gap-2 w-full">
 
                 <div ref={dataBlockRef} className="w-full max-w-md p-4 bg-gray-900 rounded-lg border-2 border-purple-500">
-                    <h3 className="text-center font-bold text-purple-400">Reassembled Data Stream</h3>
+                    <h3 className="text-center font-bold text-purple-400 text-sm md:text-base">Reassembled Data Stream</h3>
                 </div>
 
                 <div ref={arrowRef} className="my-2 opacity-0">
-                    <BsArrowUp className="text-4xl text-green-400" />
+                    <BsArrowUp className="text-2xl md:text-4xl text-green-400" />
                 </div>
 
-                <div className="flex justify-center items-start gap-4">
+                <div className="flex flex-col md:flex-row justify-center items-start gap-2 md:gap-4 w-full overflow-x-auto">
                     {layerData.sample.segments.map((seg, i) => (
                         <Segment
                             key={seg.seq}
@@ -75,14 +75,14 @@ const RX_L4_Transport = () => {
             </div>
 
             {showInfo && (
-                <motion.div variants={fadeIn} initial="hidden" animate="visible" exit="hidden" className="mt-8 w-full max-w-3xl absolute bottom-8">
-                    <div className="mt-8">
+                <motion.div variants={fadeIn} initial="hidden" animate="visible" exit="hidden" className="mt-4 md:mt-8 w-full max-w-3xl md:absolute md:bottom-8">
+                    <div className="md:mt-8">
                         <InfoBox layer={layerData} className="pb-12" />
-                        <div className="absolute bottom-1 right-4">
+                        <div className="mt-4 md:absolute md:bottom-1 md:right-4 flex justify-end">
 
                             <button
                                 onClick={handleNext}
-                                className="px-2 py-1 mb-2 mr-2 bg-green-500 text-black font-bold rounded hover:bg-green-400 transition-colors"
+                                className="px-2 py-1 bg-green-500 text-black font-bold rounded hover:bg-green-400 transition-colors text-sm md:text-base"
                             >
                                 Next: Session Check
                             </button>

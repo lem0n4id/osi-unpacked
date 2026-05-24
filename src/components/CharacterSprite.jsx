@@ -6,7 +6,7 @@ const CharacterSprite = ({ side }) => {
   const state = characterStates[side] || 'idle';
 
   // Base styles for the sprite container
-  const baseStyle = "w-24 h-32 bg-gray-500 rounded-md flex items-center justify-center";
+  const baseStyle = "w-16 h-24 md:w-24 md:h-32 bg-gray-500 rounded-md flex items-center justify-center";
 
   // Determine state-specific styles
   let stateStyle = '';

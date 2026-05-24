@@ -61,33 +61,33 @@ export default function L6_Presentation() {
   if (!layerData) return null;
 
   return (
-    <div className="w-full h-full flex flex-col p-8 relative">
-      <div className="flex-grow flex gap-8 items-center">
+    <div className="w-full h-full flex flex-col p-4 md:p-8 relative">
+      <div className="flex-grow flex flex-col md:flex-row gap-4 md:gap-8 items-center">
         <DataPanel title="Plain Data">
-          <p className="text-2xl text-white">{layerData.sample.plain}</p>
+          <p className="text-lg md:text-2xl text-white break-words">{layerData.sample.plain}</p>
         </DataPanel>
         
-        <div className="text-5xl text-green-500">→</div>
+        <div className="text-3xl md:text-5xl text-green-500 rotate-90 md:rotate-0">→</div>
 
         <DataPanel title="Encoded & Encrypted Data" className="relative">
-          <div ref={lockRef} className="absolute top-6 right-6 text-3xl text-green-400">
+          <div ref={lockRef} className="absolute top-6 right-6 text-2xl md:text-3xl text-green-400">
             <VscLock />
           </div>
-          <pre ref={encodedTextRef} className="whitespace-pre-wrap text-2xl text-yellow-400">
+          <pre ref={encodedTextRef} className="whitespace-pre-wrap text-sm md:text-2xl text-yellow-400 break-all">
             {layerData.sample.encoded}
           </pre>
           
         </DataPanel>
       </div>
       
-      <div className="mt-8">
+      <div className="mt-4 md:mt-8">
         <InfoBox layer={layerData} />
       </div>
 
-      <div className="absolute bottom-8 right-8">
+      <div className="mt-4 md:absolute md:bottom-8 md:right-8 flex justify-end">
         <button
           onClick={() => setCurrentStep('L5')}
-          className="px-2 py-1 mb-2 mr-2 bg-green-500 text-black font-bold rounded hover:bg-green-400 transition-colors"
+          className="px-2 py-1 bg-green-500 text-black font-bold rounded hover:bg-green-400 transition-colors text-sm md:text-base"
         >
           Next: Session Layer
         </button>

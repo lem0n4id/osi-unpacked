@@ -56,15 +56,17 @@ export default function RX_L1_Physical() {
   };
 
   return (
-    <div className="w-full h-full flex flex-col p-8 relative">
-      <div className="flex-grow flex justify-between items-end p-10 relative">
+    <div className="w-full h-full flex flex-col p-4 md:p-8 relative">
+      <div className="flex-grow flex flex-col md:flex-row justify-between items-end p-4 md:p-10 relative gap-4">
         {/* Left side */}
-        <div className="flex items-end space-x-4">
+        <div className="flex items-end space-x-2 md:space-x-4">
           <CharacterSprite state="idle" />
           <ComputerSprite />
         </div>
 
-        <Cable ref={cablePathRef} />
+        <div className="hidden md:block">
+          <Cable ref={cablePathRef} />
+        </div>
         
         <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
           {Array.from({ length: 15 }).map((_, i) => (
@@ -73,10 +75,10 @@ export default function RX_L1_Physical() {
         </div>
 
         {/* Right side */}
-        <div className="flex items-end space-x-4">
+        <div className="flex items-end space-x-2 md:space-x-4">
           <div className="relative">
             <ComputerSprite />
-            <div ref={nicRef} className="absolute bottom-20 mb-2 -right-4 scale-75">
+            <div ref={nicRef} className="absolute bottom-12 md:bottom-20 mb-2 -right-2 md:-right-4 scale-[0.6] md:scale-75">
                 <NIC />
             </div>
           </div>
@@ -84,14 +86,14 @@ export default function RX_L1_Physical() {
         </div>
       </div>
 
-      <div className="mt-8">
+      <div className="mt-4 md:mt-8">
         <InfoBox layer={layerData} />
       </div>
 
-      <div className="absolute bottom-8 right-8">
+      <div className="mt-4 md:absolute md:bottom-8 md:right-8 flex justify-end">
         <button
           onClick={handleNext}
-          className="px-2 py-1 mb-2 mr-2 bg-green-500 text-black font-bold rounded hover:bg-green-400 transition-colors"
+          className="px-2 py-1 bg-green-500 text-black font-bold rounded hover:bg-green-400 transition-colors text-sm md:text-base"
         >
           Next: De-Framing
         </button>

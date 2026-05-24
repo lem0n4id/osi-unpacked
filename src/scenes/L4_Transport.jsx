@@ -40,17 +40,17 @@ export default function L4_Transport() {
   if (!layerData) return null;
 
   return (
-    <div className="w-full h-full flex flex-col p-8 relative">
+    <div className="w-full h-full flex flex-col p-4 md:p-8 relative">
       <div ref={containerRef} className="flex-grow flex flex-col justify-center items-center gap-2">
         <div ref={dataBlockRef} className="w-full max-w-md p-4 bg-gray-900 rounded-lg border-2 border-purple-500 opacity-0">
-            <h3 className="text-center font-bold text-purple-400">Encrypted Data Stream</h3>
+            <h3 className="text-center font-bold text-purple-400 text-sm md:text-base">Encrypted Data Stream</h3>
         </div>
 
         <div ref={arrowRef} className="my-2 opacity-0">
-            <BsArrowDown className="text-4xl text-green-400" />
+            <BsArrowDown className="text-2xl md:text-4xl text-green-400" />
         </div>
 
-        <div className="flex justify-center items-start gap-4">
+        <div className="flex flex-col md:flex-row justify-center items-start gap-2 md:gap-4 w-full overflow-x-auto">
             {layerData.sample.segments.map((seg, i) => (
                 <Segment 
                     key={seg.seq} 
@@ -62,14 +62,14 @@ export default function L4_Transport() {
         </div>
       </div>
       
-      <div className="mt-8">
+      <div className="mt-4 md:mt-8">
         <InfoBox layer={layerData} />
       </div>
 
-      <div className="absolute bottom-8 right-8">
+      <div className="mt-4 md:absolute md:bottom-8 md:right-8 flex justify-end">
         <button
           onClick={() => setCurrentStep('L3')}
-          className="px-2 py-1 mb-2 mr-2 bg-green-500 text-black font-bold rounded hover:bg-green-400 transition-colors"
+          className="px-2 py-1 bg-green-500 text-black font-bold rounded hover:bg-green-400 transition-colors text-sm md:text-base"
         >
           Next: Network Layer
         </button>

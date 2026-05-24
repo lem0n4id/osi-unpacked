@@ -42,23 +42,25 @@ const IdleScene = () => {
   };
 
   return (
-    <div className="relative w-full h-full flex justify-between items-end p-10">
+    <div className="relative w-full h-full flex flex-col md:flex-row justify-between items-end p-4 md:p-10 gap-4">
       {/* Left side */}
-      <div className="flex items-end space-x-4">
+      <div className="flex items-end space-x-2 md:space-x-4">
         <CharacterSprite state="idle" />
         <ComputerSprite ref={monitorRef} />
         <button
           onClick={handleSend}
-          className="self-center mt-20 bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition-colors duration-300"
+          className="self-center mt-12 md:mt-20 bg-green-600 hover:bg-green-700 text-white font-bold py-1.5 md:py-2 px-3 md:px-4 rounded transition-colors duration-300 text-sm md:text-base"
         >
           Send Message
         </button>
       </div>
 
-      <Cable />
+      <div className="hidden md:block">
+        <Cable />
+      </div>
 
       {/* Right side */}
-      <div className="flex items-end space-x-4">
+      <div className="flex items-end space-x-2 md:space-x-4">
         <ComputerSprite />
         <CharacterSprite state="idle" />
       </div>
